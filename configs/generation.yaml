@@ -1,0 +1,41 @@
+# Generation and Inference Configuration for Descra
+# Model: google/flan-t5-small (60M parameter Seq2Seq Transformer)
+
+model:
+  name: "google/flan-t5-small"
+  max_input_length: 512
+  max_target_length: 256
+  device: "auto"
+  use_fp16: true
+
+decoding_strategies:
+  # Default production beam search decoding
+  beam_search:
+    num_beams: 4
+    length_penalty: 1.0
+    no_repeat_ngram_size: 3
+    early_stopping: true
+    do_sample: false
+    max_new_tokens: 128
+
+  # Fast deterministic greedy search
+  greedy:
+    num_beams: 1
+    do_sample: false
+    max_new_tokens: 128
+
+  # Stochastic nucleus sampling for creative variations
+  sampling:
+    num_beams: 1
+    do_sample: true
+    temperature: 0.7
+    top_p: 0.90
+    max_new_tokens: 128
+
+prompt:
+  prefix: "Generate a clear and engaging product description using only the information provided below."
+  suffix: "Write a concise product description. Do not invent specifications, certifications, ingredients, benefits, or claims."
+  include_category: true
+  include_specifications: true
+  include_features: true
+

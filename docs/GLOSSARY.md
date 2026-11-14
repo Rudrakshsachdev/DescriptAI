@@ -214,3 +214,4 @@
 - **Definition:** The deterministic transformation function converting structured product metadata into an instruction-tuned input string for FLAN-T5.
 - **Example:**
   `Generate product description: Title: Cetaphil Daily Hydrating Lotion | Key Features: 24 hour hydration; hyaluronic acid formula | Specifications: Skin Type: Dry, Sensitive`
+

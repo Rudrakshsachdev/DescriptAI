@@ -358,3 +358,4 @@ A critical challenge in automated product description generation is **hallucinat
 1. **Empirical Filtering:** During Step 3 preprocessing, 4,808 ungrounded records were isolated into `needs_review.jsonl`. Only records with factual alignment scores $\ge 0.2$ are admitted to training.
 2. **Constrained Prompt Engineering:** Structuring inputs with explicit semantic headers (`Title:`, `Key Features:`, `Technical Specifications:`) guides cross-attention to conditioning facts.
 3. **Factual Verification Post-Processor:** In Step 8, generated descriptions undergo automated entity-level verification against input specifications before being returned to the user.
+

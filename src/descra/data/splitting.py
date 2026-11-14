@@ -58,23 +58,30 @@ def split_canonical_records(
 
 
 def detect_data_leakage(
-    train_records: List[CanonicalRecord],
-    val_records: List[CanonicalRecord],
-    test_records: List[CanonicalRecord],
+    train_records: List[Any],
+    val_records: List[Any],
+    test_records: List[Any],
 ) -> Dict[str, Any]:
     """Audits train, validation, and test splits for product ID, description, or feature leakage."""
-    train_pids = {r.product_id for r in train_records}
-    val_pids = {r.product_id for r in val_records}
-    test_pids = {r.product_id for r in test_records}
+    def get_pid(r):
+        return r.product_id if hasattr(r, "product_id") else r.get("product_id")
+
+    def get_desc(r):
+        d = r.reference_description if hasattr(r, "reference_description") else r.get("reference_description", "")
+        return str(d).strip().lower()
+
+    train_pids = {get_pid(r) for r in train_records}
+    val_pids = {get_pid(r) for r in val_records}
+    test_pids = {get_pid(r) for r in test_records}
 
     pid_leak_train_val = train_pids.intersection(val_pids)
     pid_leak_train_test = train_pids.intersection(test_pids)
     pid_leak_val_test = val_pids.intersection(test_pids)
 
     # Exact description overlap check
-    train_descs = {r.reference_description.strip().lower() for r in train_records}
-    val_descs = {r.reference_description.strip().lower() for r in val_records}
-    test_descs = {r.reference_description.strip().lower() for r in test_records}
+    train_descs = {get_desc(r) for r in train_records}
+    val_descs = {get_desc(r) for r in val_records}
+    test_descs = {get_desc(r) for r in test_records}
 
     desc_leak_train_val = train_descs.intersection(val_descs)
     desc_leak_train_test = train_descs.intersection(test_descs)

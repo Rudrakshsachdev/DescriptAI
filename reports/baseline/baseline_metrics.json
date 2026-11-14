@@ -1,0 +1,84 @@
+{
+  "greedy": {
+    "sample_count": 100,
+    "metrics": {
+      "sample_count": 100,
+      "bleu": {
+        "corpus_bleu": 0.0,
+        "bleu_1": 0.0,
+        "bleu_2": 0.0,
+        "bleu_3": 0.0,
+        "bleu_4": 0.0
+      },
+      "rouge": {
+        "rouge1_f1": 0.35,
+        "rouge1_recall": 0.4044,
+        "rouge1_precision": 0.4506,
+        "rouge2_f1": 0.2325,
+        "rouge2_recall": 0.2826,
+        "rouge2_precision": 0.2769,
+        "rougeL_f1": 0.2959,
+        "rougeL_recall": 0.3488,
+        "rougeL_precision": 0.3808
+      }
+    },
+    "factual_adherence": {
+      "mean_consistency_score": 0.758,
+      "median_consistency_score": 0.919,
+      "mean_input_token_preservation": 0.802,
+      "mean_unsupported_numbers_per_sample": 0.06,
+      "total_samples_with_unsupported_numbers": 5,
+      "repetitive_outputs_count": 11,
+      "repetitive_outputs_pct": 11.0
+    },
+    "latency_benchmark": {
+      "mean_latency_ms": 2348.83,
+      "median_latency_ms": 1944.85,
+      "p90_latency_ms": 3924.19,
+      "p95_latency_ms": 5257.78,
+      "min_latency_ms": 131.57,
+      "max_latency_ms": 13195.98
+    }
+  },
+  "beam_search": {
+    "sample_count": 100,
+    "metrics": {
+      "sample_count": 100,
+      "bleu": {
+        "corpus_bleu": 0.0,
+        "bleu_1": 0.0,
+        "bleu_2": 0.0,
+        "bleu_3": 0.0,
+        "bleu_4": 0.0
+      },
+      "rouge": {
+        "rouge1_f1": 0.3968,
+        "rouge1_recall": 0.4322,
+        "rouge1_precision": 0.5097,
+        "rouge2_f1": 0.28,
+        "rouge2_recall": 0.3146,
+        "rouge2_precision": 0.3354,
+        "rougeL_f1": 0.3358,
+        "rougeL_recall": 0.3717,
+        "rougeL_precision": 0.4251
+      }
+    },
+    "factual_adherence": {
+      "mean_consistency_score": 0.947,
+      "median_consistency_score": 0.982,
+      "mean_input_token_preservation": 0.975,
+      "mean_unsupported_numbers_per_sample": 0.02,
+      "total_samples_with_unsupported_numbers": 2,
+      "repetitive_outputs_count": 8,
+      "repetitive_outputs_pct": 8.0
+    },
+    "latency_benchmark": {
+      "mean_latency_ms": 3727.59,
+      "median_latency_ms": 3202.86,
+      "p90_latency_ms": 8370.01,
+      "p95_latency_ms": 10652.71,
+      "min_latency_ms": 487.96,
+      "max_latency_ms": 15578.49
+    }
+  }
+}

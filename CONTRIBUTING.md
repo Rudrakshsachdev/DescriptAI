@@ -151,3 +151,4 @@ pytest tests/ -v -s
 - Never configure a batch size or sequence length that exceeds **4.5 GB peak VRAM**, leaving headroom for OS and background window managers.
 - Always use FP16 mixed precision during training and inference.
 - Call `torch.cuda.empty_cache()` after executing memory-intensive evaluations or scripts.
+

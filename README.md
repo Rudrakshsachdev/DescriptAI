@@ -80,15 +80,39 @@ descra/
 
 ---
 
-## Step 1 Execution Summary
+## Developer Execution Commands
 
-To run hardware inspection and generate the system profile report:
-```bash
-python scripts/inspect_hardware.py
+### Hardware Profiling
+```powershell
+.\.venv\Scripts\python.exe scripts/inspect_hardware.py
 ```
 
-To run the unit test suite:
-```bash
-python -m pytest tests/ -v
+### Dataset EDA Report & Publication Figures
+```powershell
+.\.venv\Scripts\python.exe scripts/generate_eda.py
 ```
+
+### Baseline Model Inference
+```powershell
+# Interactive / Sample product description generation with FLAN-T5-small
+.\.venv\Scripts\python.exe scripts/run_baseline.py --sample
+```
+
+### Baseline Model Validation Evaluation (Greedy vs. Beam Search)
+```powershell
+# Evaluates BLEU, ROUGE-1/2/L, factual adherence, and latency on validation set
+.\.venv\Scripts\python.exe scripts/evaluate_baseline.py --sample-size 100
+```
+
+### GPU Latency & VRAM Benchmarking Matrix
+```powershell
+# Benchmarks batch sizes {1, 4, 8} and sequence lengths {128, 256, 512} on RTX 4050
+.\.venv\Scripts\python.exe scripts/benchmark_baseline.py
+```
+
+### Automated Pytest Suite
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests/ -v
+```
+
 

@@ -10,13 +10,6 @@ import os
 from pathlib import Path
 import sys
 from typing import Any, Dict, List, Tuple
-
-# Set writable cache directories and offline mode for deterministic execution
-mpl_cache = Path(__file__).resolve().parent.parent / ".mpl_cache"
-mpl_cache.mkdir(parents=True, exist_ok=True)
-os.environ["MPLCONFIGDIR"] = str(mpl_cache)
-os.environ["HF_HUB_OFFLINE"] = "1"
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -426,3 +419,4 @@ The following publication-grade charts have been generated and saved under `repo
 
 if __name__ == "__main__":
     run_full_eda()
+

@@ -132,3 +132,4 @@ python -m pytest tests/
 - **Paths:** Always use `pathlib.Path` instead of raw string concatenations for cross-platform compatibility.
 - **Error Handling:** Catch explicit exceptions (`FileNotFoundError`, `ValueError`, `torch.cuda.CudaError`), log them via `descra.utils.logging`, and never swallow errors silently.
 - **Testing:** Every new module in `src/descra/` must have a corresponding test suite in `tests/test_<module>.py`.
+

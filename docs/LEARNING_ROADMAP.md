@@ -255,3 +255,4 @@ flowchart TD
      - **Answer:** Loading model weights takes several seconds and allocates GPU memory. Doing this per-request would cause massive latency spikes and out-of-memory crashes. Loading once at startup allows instant parallel inference.
   2. *What is model quantization and what trade-off does it introduce?*
      - **Answer:** Quantization converts 32-bit or 16-bit floating-point weights into 8-bit or 4-bit integers. It drastically cuts VRAM usage and speeds up memory-bandwidth-bound inference, with only minor degradations in perplexity.
+

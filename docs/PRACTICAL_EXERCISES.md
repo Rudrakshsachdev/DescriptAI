@@ -486,3 +486,4 @@ def exercise_9_solution():
 if __name__ == "__main__":
     exercise_9_solution()
 ```
+
