@@ -1,0 +1,22 @@
+# Descra Data Configuration
+dataset_name: "amazon_product_metadata"
+subset_category: "Electronics"
+raw_data_dir: "data/raw"
+interim_data_dir: "data/interim"
+processed_data_dir: "data/processed"
+manifests_dir: "data/manifests"
+
+sample_target_size: 10000
+train_ratio: 0.80
+val_ratio: 0.10
+test_ratio: 0.10
+random_seed: 42
+
+filters:
+  min_description_words: 10
+  max_description_words: 250
+  min_features_count: 1
+  min_title_chars: 5
+  remove_html: true
+  normalize_whitespace: true
+

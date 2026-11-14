@@ -1,0 +1,23 @@
+# Descra Evaluation Configuration
+test_dataset_path: "data/processed/test.json"
+output_report_dir: "reports/evaluation"
+metrics:
+  - "bleu"
+  - "rouge1"
+  - "rouge2"
+  - "rougeL"
+  - "bertscore"
+  - "latency"
+
+sacrebleu:
+  smooth_method: "exp"
+  lowercase: true
+
+bertscore:
+  model_type: "distilbert-base-uncased"
+  batch_size: 16
+
+latency_benchmark:
+  num_warmup: 5
+  num_runs: 50
+

@@ -1,0 +1,40 @@
+# Descra Model Configuration
+model_name: "google/flan-t5-small"
+fallback_model: "google/flan-t5-base"
+tokenizer_name: "google/flan-t5-small"
+
+max_input_length: 256
+max_target_length: 128
+
+device: "cuda"  # Auto-falls back to "cpu" if CUDA unavailable
+precision: "fp16"  # "fp16" or "fp32"
+
+generation_defaults:
+  decoding_strategy: "beam_search"
+  max_new_tokens: 128
+  num_beams: 4
+  no_repeat_ngram_size: 3
+  early_stopping: true
+  repetition_penalty: 1.2
+  length_penalty: 1.0
+
+decoding_strategies:
+  greedy:
+    do_sample: false
+    num_beams: 1
+    max_new_tokens: 128
+  beam_search:
+    do_sample: false
+    num_beams: 4
+    length_penalty: 1.0
+    no_repeat_ngram_size: 3
+    early_stopping: true
+    max_new_tokens: 128
+  sampling:
+    do_sample: true
+    temperature: 0.7
+    top_p: 0.90
+    top_k: 50
+    repetition_penalty: 1.2
+    max_new_tokens: 128
+
