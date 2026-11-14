@@ -1,0 +1,67 @@
+{
+  "dataset_name": "Descra Product Description Dataset",
+  "category": "All_Beauty",
+  "total_accepted_records": 4786,
+  "split_counts": {
+    "train": 3828,
+    "validation": 478,
+    "test": 480,
+    "needs_review": 4808
+  },
+  "feature_statistics": {
+    "mean": 4.11,
+    "std": 1.42,
+    "median": 5,
+    "min": 1,
+    "max": 12
+  },
+  "description_word_statistics": {
+    "mean": 62.01,
+    "std": 52.95,
+    "median": 45,
+    "min": 10,
+    "max": 249,
+    "p95": 184
+  },
+  "token_statistics": {
+    "input_prompt": {
+      "mean": 268.63,
+      "std": 115.24,
+      "median": 236,
+      "min": 74,
+      "max": 1064,
+      "p50": 236,
+      "p75": 322,
+      "p90": 443,
+      "p95": 500,
+      "p99": 614,
+      "pct_truncated_at_256": 41.2
+    },
+    "target_description": {
+      "mean": 96.78,
+      "std": 78.69,
+      "median": 72,
+      "min": 13,
+      "max": 514,
+      "p50": 72,
+      "p75": 127,
+      "p90": 210,
+      "p95": 277,
+      "p99": 348,
+      "pct_truncated_at_128": 24.55
+    }
+  },
+  "factual_alignment": {
+    "breakdown": {
+      "ALIGNED": 3082,
+      "PARTIALLY_ALIGNED": 1704
+    },
+    "mean_score": 0.549,
+    "median_score": 0.458
+  },
+  "specifications": {
+    "records_with_specs": 4765,
+    "pct_with_specs": 99.56,
+    "avg_specs_per_product": 6.48
+  }
+}
