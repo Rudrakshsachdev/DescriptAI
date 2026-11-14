@@ -1,0 +1,14 @@
+{
+  "source_name": "UCSD McAuley-Lab Amazon Product Metadata (2023 Update)",
+  "source_url": "https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023/resolve/main/raw_meta_All_Beauty/full-00000-of-00001.parquet",
+  "dataset_version": "Amazon-Reviews-2023 (McAuley-Lab)",
+  "category": "All_Beauty",
+  "raw_file_name": "meta_All_Beauty.parquet",
+  "raw_file_path": "data\\raw\\meta_All_Beauty.parquet",
+  "file_size_bytes": 59635138,
+  "file_size_mb": 56.87,
+  "sha256_checksum": "14815cf1312a0d847364866e6876c8c73738993469067242870774c372c04387",
+  "download_timestamp": "2026-11-14T14:36:36Z",
+  "license_type": "Research & Non-Commercial Educational Use",
+  "attribution": "Jianmo Ni, Jiacheng Li, Julian McAuley. Justifying recommendations using distantly-labeled reviews and fine-grained aspects. EMNLP-IJCNLP 2019 / Hou et al., Bridging Language and Items for Recommendation and Retrieval, arXiv 2024."
+}

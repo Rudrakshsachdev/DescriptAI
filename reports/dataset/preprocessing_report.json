@@ -1,0 +1,26 @@
+{
+  "total_raw_records": 112590,
+  "accepted_records": 4786,
+  "rejected_records": 107804,
+  "rejection_reasons": {
+    "MISSING_TITLE": 12,
+    "SHORT_TITLE": 29,
+    "NO_FEATURES": 95215,
+    "NO_DESCRIPTION": 4667,
+    "DESCRIPTION_TOO_SHORT": 1033,
+    "DESCRIPTION_TOO_LONG": 1066,
+    "DUPLICATE_ASIN": 0,
+    "DUPLICATE_DESCRIPTION": 974,
+    "UNALIGNED_OR_CONTRADICTED": 4808
+  },
+  "alignment_breakdown": {
+    "ALIGNED": 3082,
+    "PARTIALLY_ALIGNED": 1704,
+    "NEEDS_REVIEW": 1634,
+    "INSUFFICIENT_INPUT": 3174,
+    "CONTRADICTED": 0
+  },
+  "avg_input_features": 4.11,
+  "avg_description_words": 62.01,
+  "canonical_schema_version": "v1.0"
+}
