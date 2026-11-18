@@ -1,6 +1,7 @@
 """Reliability tests for bounded inference, overload, and timeout behavior."""
 
 import asyncio
+import threading
 import time
 
 import pytest
@@ -98,20 +99,26 @@ def test_cancellation_does_not_release_capacity_before_underlying_inference_fini
             capacity_wait_seconds=0.02,
             inference_timeout_seconds=1.0,
         )
+        worker_started = threading.Event()
+        allow_worker_to_finish = threading.Event()
 
         def slow() -> str:
-            time.sleep(0.12)
+            worker_started.set()
+            allow_worker_to_finish.wait(timeout=2.0)
             return "completed"
 
         request = asyncio.create_task(limiter.run(slow))
-        await asyncio.sleep(0.01)
-        request.cancel()
+        try:
+            assert await asyncio.to_thread(worker_started.wait, 1.0)
+            request.cancel()
 
-        with pytest.raises(asyncio.CancelledError):
-            await request
+            with pytest.raises(asyncio.CancelledError):
+                await request
 
-        with pytest.raises(ServiceOverloadedException):
-            await limiter.run(lambda: "must remain blocked")
+            with pytest.raises(ServiceOverloadedException):
+                await limiter.run(lambda: "must remain blocked")
+        finally:
+            allow_worker_to_finish.set()
 
         assert await limiter.wait_for_idle(timeout=1.0) is True
         assert await limiter.run(lambda: "released") == "released"
