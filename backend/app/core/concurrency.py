@@ -43,20 +43,26 @@ class InferenceConcurrencyLimiter:
 
     async def run(self, function: Callable[..., T], *args: Any, **kwargs: Any) -> T:
         """Runs synchronous inference with bounded capacity and a request timeout."""
+        acquisition = asyncio.create_task(self._semaphore.acquire())
         try:
-            await asyncio.wait_for(
-                self._semaphore.acquire(),
+            completed, _ = await asyncio.wait(
+                {acquisition},
                 timeout=self.capacity_wait_seconds,
             )
-        except asyncio.TimeoutError as exc:
-            logger.warning(
-                "Inference overload: capacity=%d unavailable within %.3f seconds",
-                self.max_concurrent,
-                self.capacity_wait_seconds,
-            )
-            raise ServiceOverloadedException(
-                "The description generation service is currently overloaded.",
-            ) from exc
+            if acquisition not in completed:
+                self._cancel_acquisition(acquisition)
+                logger.warning(
+                    "Inference overload: capacity=%d unavailable within %.3f seconds",
+                    self.max_concurrent,
+                    self.capacity_wait_seconds,
+                )
+                raise ServiceOverloadedException(
+                    "The description generation service is currently overloaded.",
+                )
+            await acquisition
+        except asyncio.CancelledError:
+            self._cancel_acquisition(acquisition)
+            raise
 
         task = asyncio.create_task(asyncio.to_thread(function, *args, **kwargs))
         self._active_tasks.add(task)
@@ -92,6 +98,25 @@ class InferenceConcurrencyLimiter:
                     self._semaphore.release()
                 else:
                     task.add_done_callback(self._release_after_task)
+
+    def _cancel_acquisition(self, acquisition: asyncio.Task[bool]) -> None:
+        """Cancels a pending semaphore acquire and releases a permit if it won a race."""
+        acquisition.cancel()
+        acquisition.add_done_callback(self._release_acquired_permit)
+
+    def _release_acquired_permit(self, acquisition: asyncio.Task[bool]) -> None:
+        """Returns a permit acquired concurrently with cancellation or overload."""
+        if acquisition.cancelled():
+            return
+        error = acquisition.exception()
+        if error is not None:
+            logger.error(
+                "Semaphore acquisition failed during cancellation cleanup.",
+                exc_info=(type(error), error, error.__traceback__),
+            )
+            return
+        if acquisition.result():
+            self._semaphore.release()
 
     def _release_after_task(self, task: asyncio.Future[T]) -> None:
         """Releases capacity only after underlying synchronous inference finishes."""
