@@ -1,0 +1,28 @@
+{
+  "experiment_id": "EXP-STEP9-FINAL-TEST-001",
+  "timestamp_utc": "2026-11-18T08:48:31.849693+00:00",
+  "test_dataset_path": "data\\processed\\test.jsonl",
+  "test_dataset_sha256": "46ff4ef623a899779ed25d68e15e57e667c553541730ca2b15fd60b87b867899",
+  "test_record_count": 480,
+  "random_seed": 42,
+  "models_evaluated": {
+    "baseline": "google/flan-t5-small",
+    "finetuned": "checkpoints\\sft\\best_checkpoint"
+  },
+  "strategies_evaluated": [
+    "greedy",
+    "beam_search_2",
+    "beam_search_4"
+  ],
+  "total_expected_generations": 2880,
+  "hardware": {
+    "device": "cuda:0",
+    "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "total_vram_mb": 6140.5
+  },
+  "environment": {
+    "python_version": "3.10.11",
+    "pytorch_version": "2.6.0+cu124",
+    "sacrebleu_version": "2.6.0"
+  }
+}

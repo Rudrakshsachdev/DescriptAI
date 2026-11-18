@@ -1,0 +1,21 @@
+{
+  "dataset_path": "data\\processed\\test.jsonl",
+  "sha256_hash": "46ff4ef623a899779ed25d68e15e57e667c553541730ca2b15fd60b87b867899",
+  "total_lines_read": 480,
+  "total_valid_records": 480,
+  "expected_records": 480,
+  "records_count_verified": true,
+  "unique_product_ids_count": 480,
+  "all_product_ids_unique": true,
+  "malformed_lines_count": 0,
+  "malformed_line_numbers": [],
+  "missing_references_count": 0,
+  "missing_titles_count": 0,
+  "unconstructible_prompts_count": 0,
+  "train_set_overlap_count": 0,
+  "train_set_overlap_ids": [],
+  "val_set_overlap_count": 0,
+  "val_set_overlap_ids": [],
+  "test_split_isolated_from_training": true,
+  "overall_integrity_passed": true
+}

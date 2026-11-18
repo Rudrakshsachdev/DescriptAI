@@ -128,6 +128,13 @@ descra/
 .\.venv\Scripts\python.exe scripts/evaluate_finetuned.py --sample-size 100
 ```
 
+### Step 9: Final Held-Out Test Evaluation & Statistical Comparison
+```powershell
+# Executes full benchmark across all 480 held-out test records (2,880 passes)
+# Computes 1,000 paired bootstrap CIs, renders 10 academic figures, and writes 5 research reports
+.\.venv\Scripts\python.exe scripts/run_test_evaluation.py
+```
+
 ### Automated Pytest Suite
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests/ -v

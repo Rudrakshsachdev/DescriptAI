@@ -63,8 +63,8 @@ Descra Phase 1 focuses on building a **reproducible, factually grounded, locally
 | **Step 6** | **Baseline Model Development** | Model loader (`src/descra/models/loader.py`), baseline generator (`src/descra/models/baseline.py`), prompt formatting (`src/descra/models/generation.py`), evaluation suite (`src/descra/evaluation/`), greedy vs beam search validation evaluation ($N=100$), GPU benchmark matrix, `reports/baseline/BASELINE_MODEL_REPORT.md`, 33 passing automated tests | **COMPLETED** |
 | **Step 7** | **Baseline Experimentation** | Category availability audit (10 proposed roadmap categories, 1 eligible), 5-strategy decoding benchmark (Greedy, Beam-2, Beam-4, Sample-0.7, Sample-1.0; 500 generation passes), failure analysis JSON, streaming JSONL/CSV outputs, 40 automated tests | **PARTIALLY COMPLETED (Scope Gapped to Available Category)** |
 | **Step 8** | **Fine-Tuning FLAN-T5** | PyTorch Seq2Seq training loop (`src/descra/training/`), AdamW optimizer, linear warmup scheduler, label masking (`-100`), gradient clipping, loss curve plots, best checkpoint saving (`checkpoints/sft/best_checkpoint`), 45 passing automated tests | **COMPLETED** |
-| **Step 9** | **Model Evaluation & Comparison** | SacreBLEU, ROUGE-1/2/L, BERTScore, latency benchmark (P50/P95), comparative analysis: Baseline vs. Fine-Tuned on identical held-out test split | Pending Step 8 |
-| **Step 10**| **Final Review & Phase 1 Handover** | Complete test suite (`pytest tests/`), README, Viva preparation documentation, handover notes for Phase 2 FastAPI integration | Pending Step 9 |
+| **Step 9** | **Model Evaluation & Comparison** | Comprehensive held-out evaluation on 480 test records (2,880 passes: Greedy, Beam-2, Beam-4), 10 publication figures, 5 markdown research reports, paired bootstrap significance testing (1,000 resamples), human evaluation CSV template, 48 passing unit tests | **COMPLETED** |
+| **Step 10**| **Final Review & Phase 1 Handover** | Complete test suite (`pytest tests/`), README, Viva preparation documentation, handover notes for Phase 2 FastAPI integration | Next Milestone |
 
 ---
 

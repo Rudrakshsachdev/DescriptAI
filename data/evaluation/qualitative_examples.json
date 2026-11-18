@@ -1,0 +1,361 @@
+{
+  "1_strong_improvement": [
+    {
+      "product_id": "B003TJE604",
+      "product_title": "Beyond The Zone Sally Beauty Noodle Head Curly Hair Shampoo",
+      "features": [
+        "Blue suggestive brush prompts you to replace the toothbrush head,Dentists recommend replacement of the brush head at least once every 3 months.",
+        "HX9322 HX9331 HX9332 HX9334 HX9336 HX9340 HX9342 HX9350, HX9351 HX9352 HX9361 HX9362 HX9371 HX9372 HX9381 HX9382"
+      ],
+      "reference_description": "r:These toothbrush headsOur blue reminder bristles fade to white and help you recognize when it's time for a replacement.(Dentists recommend replace the brush head at least once every 3 months).",
+      "baseline_output": "Product Name: Beyond The Zone Sally Beauty Noodle Head Curly Hair Shampoo",
+      "finetuned_output": "Blue suggestive brush prompts you to replace the toothbrush head,Dentists recommend replacement of the brush head at least once every 3 months.",
+      "baseline_rouge1_f1": 0.0889,
+      "finetuned_rouge1_f1": 0.6071,
+      "rouge1_gain": 0.5182,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B00V908ZH0",
+      "product_title": "Baby Magic Diaper Rx Max- Strength 3 Ounce (88ml) (6 Pack)",
+      "features": [
+        "6 Pieces - 3 Ounce (88ml)",
+        "Helps Prevent Diaper Rash,",
+        "With 40% Zinc Oxide,",
+        "Vitamin Enriched,",
+        "Hypoallergenic"
+      ],
+      "reference_description": "Helps Prevent Diaper Rash, With 40% Zinc Oxide, Vitamin Enriched, Hypoallergenic",
+      "baseline_output": "Baby Magic Diaper Rx Max- Strength 3 Ounce (88ml) (6 Pack) Features: - 6 Pieces - 3 Occasional Diaper Rash - With 40% Zinc Oxide - Vitamin Enriched - Hypoallergenic",
+      "finetuned_output": "Helps Prevent Diaper Rash, With 40% Zinc Oxide, Vitamin Enriched, Hypoallergenic",
+      "baseline_rouge1_f1": 0.5,
+      "finetuned_rouge1_f1": 1.0,
+      "rouge1_gain": 0.5,
+      "baseline_factual": 0.952,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B0019QFVO4",
+      "product_title": "Osmo Essence Resin Extreme Glue - 6.7 oz",
+      "features": [
+        "Extreme, long-lasting control for even the most outrageous styles."
+      ],
+      "reference_description": "A high performance formula for the ultimate hold with no stickiness or flaking. Extreme, long-lasting control for even the most outrageous styles.",
+      "baseline_output": "Osmo Essence Resin Extreme Glue - 6.7 oz",
+      "finetuned_output": "Extreme, long-lasting control for even the most outrageous styles.",
+      "baseline_rouge1_f1": 0.0645,
+      "finetuned_rouge1_f1": 0.6061,
+      "rouge1_gain": 0.5416,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    }
+  ],
+  "2_similar_performance": [
+    {
+      "product_id": "B01D2YAQJ0",
+      "product_title": "Runbox Hanging Toiletry Kit Business Travel Organizer Cosmetic Makeup Bag with Shoulder Strap (Black 2)",
+      "features": [
+        "Hanging Toiletry Kit Business Travel Organizer Cosmetic Makeup Bag with Shoulder Strap (Black 2)"
+      ],
+      "reference_description": "Hanging Toiletry Kit Business Travel Organizer Cosmetic Makeup Bag with Shoulder Strap (Black 2)",
+      "baseline_output": "Runbox Hanging Toiletry Kit Business Travel Organizer Cosmetic Makeup Bag with Shoulder Strap (Black 2)",
+      "finetuned_output": "Hanging Toiletry Kit Business Travel Organizer Cosmetic Makeup Bag with Shoulder Strap (Black 2)",
+      "baseline_rouge1_f1": 0.9655,
+      "finetuned_rouge1_f1": 1.0,
+      "rouge1_gain": 0.0345,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B077X78JCS",
+      "product_title": "Nightmare Ultimate\"Jack\" Dress Up Set",
+      "features": [
+        "Includes 4 wells of face paint, 1 no-smudge body paint, 1 sponge with stick, 1 eye liner pencil, 1 sponge brush and 1 lip stick",
+        "Face paint colors include white and black",
+        "Eye liner pencil is black and body paint is black",
+        "Lip Stick is black and berry flavored",
+        "Disney's Tim Burton's The Nightmare Before Christmas packaging"
+      ],
+      "reference_description": "If Jack's her one true love, she'll love this gift! With this Nightmare Before Christmas dress-up set, she'll have every tool she needs to dress up like her favorite skeleton friend. Face paint and body paint will start off her look, topped of with eye liner and lip stick. Spook-tastic!",
+      "baseline_output": "The Nightmare Ultimate Dress Up Set features 4 wells of face paint, 1 no-smudge body paint, sponge with stick, 1 eye liner pencil, 1 sponge brush and 1 lip stick .",
+      "finetuned_output": "Nightmare Ultimate\"Jack\" Dress Up Set Includes 4 wells of face paint, 1 no-smudge body paint, one sponge with stick, 1 eye liner pencil, 1 sponge brush and 1 lip stick",
+      "baseline_rouge1_f1": 0.3488,
+      "finetuned_rouge1_f1": 0.3908,
+      "rouge1_gain": 0.042,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 0.952
+    },
+    {
+      "product_id": "B0759M28L8",
+      "product_title": "Too Faced Primed & Peachy Cooling Matte Perfecting Primer, 40 mL / 1.35 Fl.Oz.",
+      "features": [
+        "Blurs, smooths, and brightens complexion",
+        "16-hour+longwear / 12-hour+shine control",
+        "Mattifying soft-focus finish",
+        "Lightweight, comfortable wear",
+        "Full Size 40 ml /1.35 oz"
+      ],
+      "reference_description": "Cooling matte primer blurs and smooths your complexion with a brightening peach tint that works on any skin tone. Wear alone of under foundation for a mattifying soft-focus finish that's lightweight, comfortable, and long lasting.",
+      "baseline_output": "Too Faced Primed & Peachy Cooling Matte Perfecting Primer, 40 mL / 1.35 Fl.Oz. Features: - Blurs, smooths, and brightens complexion - 16-hour+longwear / 12-hour+shine control - Mattifying soft-focus finish - Lightweight, comfortable wear - Full Size 40ml /1.35 oz",
+      "finetuned_output": "Blurs, smooths, and brightens complexion. 16-hour+longwear / 12-hour+shine control. Mattifying soft-focus finish. Lightweight, comfortable wear. Full Size 40 ml /1.35 oz.",
+      "baseline_rouge1_f1": 0.3896,
+      "finetuned_rouge1_f1": 0.381,
+      "rouge1_gain": -0.0086,
+      "baseline_factual": 0.77,
+      "finetuned_factual": 1.0
+    }
+  ],
+  "3_finetuned_worse": [
+    {
+      "product_id": "B017O6UUOI",
+      "product_title": "Kiss I Envy Juicy Volume 14 Value Pack 4+1 Lashes",
+      "features": [
+        "Suitable For Contact Lens Wearer.",
+        "100% Human Hair."
+      ],
+      "reference_description": "Kiss I Envy Juicy Volume - #14 False Lashes Value Pack 5-Count - Suitable For Contact Lens Wearer. 100% Human Hair.",
+      "baseline_output": "Kiss I Envy Juicy Volume 14 Value Pack 4+1 Lashes Features: - Suitable For Contact Lens Wearer. - 100% Human Hair.",
+      "finetuned_output": "Kiss I Envy Juicy Volume 14 Value Pack 4+1 Lashes",
+      "baseline_rouge1_f1": 0.85,
+      "finetuned_rouge1_f1": 0.5806,
+      "rouge1_gain": -0.2694,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B00VHCW2ZG",
+      "product_title": "2 PCS Bella Natural Herbal Breast Enlargement Cream - Surgery-Free Bust & Butt Enhancer",
+      "features": [
+        "Bella Natural Herbal Breast Enhancement Cream is a tissue stimulating natural blend that helps enhance a women's breasts and skin unique cream formulation is absorbed very quickly into the breasts to penetrate deeply, allowing maximal results that are applied directly to the target tissues.",
+        "The end result is a visible firming and enhancing of the breasts and surrounding breast enhancement program is based on the amount of breast tissue nourishing levels present in the body.",
+        "A six month program should be sufficient to give maximum results on breast enhancement. You can stop as soon as you are satisfied with the results. Six months is the recommended period in order to obtain maximum results.",
+        "After six months, once a week application may be all that is required to keep your breasts looking fuller, perkier and firmer!",
+        "Bella Natural Herbal Breast Enhancement Cream is also used as a natural butt enhancer using the same properties that help with breast included is the highly informative, must-have."
+      ],
+      "reference_description": "PRODUCT DESCRIPTION: Bella Natural Herbal Breast Enhancement Cream is a tissue stimulating natural blend that helps enhance a women's breasts and skin unique cream formulation is absorbed very quickly into the breasts to penetrate deeply, allowing maximal results that are applied directly to the target tissues. The end result is a visible firming and enhancing of the breasts and surrounding breast enhancement program is based on the amount of breast tissue nourishing levels present in the body. A six month program should be sufficient to give maximum results on breast enhancement. You can stop as soon as you are satisfied with the results. Six months is the recommended period in order to obtain maximum results. After six months, once a week application may be all that is required to keep your breasts looking fuller, perkier and firmer!Bella Natural Herbal Breast Enhancement Cream is also used as a natural butt enhancer using the same properties that help with breast included is the highly informative, must-have 'The Smart Women's Guide to Natural, Surgery-Free Breast Enlargement & Butt Enhancement'. Learn the multiple-strategies to increasing your bust and enhancing your butt even faster!*This statement has not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease. DETAILS: Shipping Weight: 7.2 ounces. ADDITIONAL PRODUCT INFO: Bella Natural Herbal Breast Enlargement Cream - Surgery-Free, Bust & Butt Enhancer.",
+      "baseline_output": "Product Name: 2 PCS Bella Natural Herbal Breast Enlargement Cream - Surgery-Free Bust & Butt Enhancer Features: - Bella natural breast enhancement cream helps enhance a women's breasts and skin unique cream formulation is absorbed very quickly into the breasts to penetrate deeply, allowing maximum results that are applied directly to the target tissues. - The end result is a visible firming and enhancing of the breast and surrounding breast enhancement program is based on the amount of breast tissue nourishing levels present in the body. A six month program should be sufficient to give maximum results",
+      "finetuned_output": "Bella Natural Herbal Breast Enhancement Cream is a tissue stimulating natural blend that helps enhance a women's breasts and skin unique cream formulation is absorbed very quickly into the breasts to penetrate deeply, allowing maximum results that are applied directly to the target tissues.",
+      "baseline_rouge1_f1": 0.5509,
+      "finetuned_rouge1_f1": 0.3169,
+      "rouge1_gain": -0.234,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B005AQDE2K",
+      "product_title": "Decades of Fragrance 1960 by Besame Cosmetics for Women 1.7 oz Eau de Parfum with Atomizer Pump",
+      "features": [
+        "The most delectable lipstick with a semi-matte finish and one coat full coverage",
+        "The highest natural pigment content for a smooth, indelible, feather-proof finish",
+        "Reminiscent of the decorative cases used in the 1940s each lipstick is set in a gold plated bullet shaped case, with a protective velvet pouch for storage",
+        "Enriched with vitamins A, E and C, aloe and green tea",
+        "Our vintage reproduction colors are the exact shades used by your favorite Hollywood starlets"
+      ],
+      "reference_description": "Decades of Fragrance 1960 by Besame Cosmetics for Women 1.7 oz Eau de Parfum with Atomizer Pump",
+      "baseline_output": "Product Name: Decades of Fragrance 1960 by Besame Cosmetics for Women 1.7 oz Eau de parfum with Atomizer Pump Features: - The most delectable lipstick with a semi-matte finish and one coat full coverage",
+      "finetuned_output": "The most delectable lipstick with a semi-matte finish and one coat full coverage. The highest natural pigment content for a smooth, indelible, feather-proof finish. Reminiscent of the decorative cases used in the 1940s each lipstick is set in a gold plated bullet shaped case. Enriched with vitamins A, E and C, aloe and green tea. Our vintage reproduction colors are the exact shades used by your favorite Hollywood starlets.",
+      "baseline_rouge1_f1": 0.6792,
+      "finetuned_rouge1_f1": 0.0899,
+      "rouge1_gain": -0.5893,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    }
+  ],
+  "4_missing_attributes": [],
+  "5_generic_or_repetitive": [
+    {
+      "product_id": "B08PPFTYFN",
+      "product_title": "Hair Claw Clips 4 PCS Large Hair Jaw Clips Strong Hair Clamps Clips Fashion Hair Accessories Tortoise Banana Hair Claw for Women Girls Youngster Ladies Hair Accessories",
+      "features": [
+        "high quality 3 pcs plastic hair clips (4 Inch X 3.8 Inch) and 1 pcs iron hair jaw clips (2.8Inch X 0.98 Inch), using the high-quality metal springs which is very strong and durable, and not easily deformed.",
+        "Great Collocation Different types of collocations for the hair claw clips will satisfy you anytime.You need\u2019t worry about the hair clips will too casual that not fashionable when you go out.",
+        "Non-slip The teeth design can greatly handle whatever thick or thin hair, and can keep the original shape of your hair so you don\u2019t have to worry about your newly styling hair will be damage.",
+        "Used Anywhere The fashion hair accessories can be used anywhere. Like daily life, parties, birthdays, appointments, and it is also one of the best choices as a gift.",
+        "After-sales Service If the hair clamps clips have any quality problem and you are not completely satisfied, please feel free to contact us, we will do our best to deal with it.",
+        "Hair type: Wavy",
+        "Fabric type: iron"
+      ],
+      "reference_description": "Package includes: 4 x Long Size Hair Claw Clips Material: Acetate Fiber(gloss and good durability) & Metal Alloy Weight: 100g(lightweight and graceful) Style: French vintage design Style: French vintage design The teeth are smooth, do not hurt the scalp, and are not easy to spread, provides a strong and secure hold. They are nicely made and strong, it is pretty durable and hard to break. Stylish and Elegant Very suitable for daily life, work, school, party, wedding, graduation, prom, ballet recital, shower, make-up, etc. but still functional. Great choose as a gift The fashional hair claw clips is suit for women.",
+      "baseline_output": "Product Name: Hair Claw Clips 4 PCS Large Hair Jaw Clips Strong Hair Clamps Clips Fashion Hair Accessories Tortoise Bananahair Claw for Women Girls Youngster Ladies Hair Accessories Features: - high quality 3 pcs plastic hair clips (4 Inch X 3.8 Inch) and 1 p cms iron hair jaw clips (2.8Inch x 0.98 Inch), using the high-quality metal springs which is very strong and durable, and not easily deformed. - Great Collocation Different types of collocations for the hair claw clips will satisfy",
+      "finetuned_output": "Hair Claw Clips 4 PCS Large Hair Jaw Clips Strong Hair Clamps Clips Fashion Hair Accessories Tortoise Banana hair Claw for Women Girls Youngster Ladies Hair Accessories",
+      "baseline_rouge1_f1": 0.266,
+      "finetuned_rouge1_f1": 0.1692,
+      "rouge1_gain": -0.0968,
+      "baseline_factual": 0.642,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B00EIIEN3U",
+      "product_title": "Be Koool Be Koool Soft Gel Sheets For Kids Pack of 3",
+      "features": [
+        "3 packs of 4 sheets in Each pack",
+        "immediate cooling relief",
+        "3 packs of 4 sheets in Each pack",
+        "convenient disposable product.",
+        "They need no refrigeration"
+      ],
+      "reference_description": "Be Koool Be Koool Soft Gel Sheets For Kids Pack of 3",
+      "baseline_output": "Be Koool Soft Gel Sheets For Kids Pack of 3 Features: - 3 packs of 4 sheets in Each pack - immediate cooling relief - 3- packs of 4-sheets in Each Pack - convenient disposable product. - They need no refrigeration Specifications:",
+      "finetuned_output": "Be Koool Soft Gel Sheets For Kids Pack of 3",
+      "baseline_rouge1_f1": 0.4,
+      "finetuned_rouge1_f1": 0.9091,
+      "rouge1_gain": 0.5091,
+      "baseline_factual": 0.657,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B07VV9HFTZ",
+      "product_title": "MB Herbals Alum Powder 250 Gram (8.81 oz) | Granulated Coarse Potassium Alum Powder | Food Preservative Preserving Pickles | Making Playdough | Fabric Mordant",
+      "features": [
+        "MB Herbals Purified Alum Powder 250 Gram (8.81 oz)",
+        "Our Potassium Alum Powder is slightly granulated. It is a coarse Powder since Potassium Alum is a crytalline substance.",
+        "Food Grade. Processed through traditional Ayurveda Shodhan Purification Process.",
+        "Alum Powder is a Natural Food Preservative especially Pickles. It helps in maintaining Crispiness of Pickles, Vegetables and Processed Food items.",
+        "Alum is also used as a Water Purifier.",
+        "Alum Powder can also help in reducing Foot and Body Odor. Alum Powder is used in cosmetics as a Natural Preservative.",
+        "Alum is also used as a Fabric Mordant.",
+        "This is a High Quality Purified Food Grade Alum Powder. This Alum can also be used as a Shaving Alum. However, this being a Food Grade Alum, it has a slightly lower Astringent Property.",
+        "Alum is known as Fitkari or Phitkari in India.",
+        "Made in India."
+      ],
+      "reference_description": "MB Herbals Purified Alum Powder 250 Gram Granulated Food Grade Alum Powder to be used as a Food Preservative for Indian Pickles etc.",
+      "baseline_output": "MB Herbals Alum Powder 250 Gram (8.81 oz) | granulated coarse potassium alum powder | Food Preservative Preserving Pickles | Making Playdough | Fabric Mordant Features: - MB Shebals Purified Alum powder 250 Gram (0.885 ounces) - Our Potassium Arum Powder is slightly granularized. It is a coarse Powder since Potassim Alum is  a crytalline substance. - Food Grade. Processed through traditional Ayurve",
+      "finetuned_output": "MB Herbals Purified Alum Powder 250 Gram (8.81 oz) | Granulated Coarse Potassium Alum powder | Food Preservative Preserving Pickles | Making Playdough | Fabric Mordant",
+      "baseline_rouge1_f1": 0.3951,
+      "finetuned_rouge1_f1": 0.5652,
+      "rouge1_gain": 0.1701,
+      "baseline_factual": 0.116,
+      "finetuned_factual": 1.0
+    }
+  ],
+  "6_unsupported_numbers": [
+    {
+      "product_id": "B00RCTMRDU",
+      "product_title": "Andis 04895 Superliner RT-1 Replacement Shallow Tooth T-Blade",
+      "features": [
+        "Carbon-steel for dependable, long-life blade that stays sharp",
+        "Snap on design for easy cleaning and maintenance",
+        "Close-cutting T-blade",
+        "Replacement for Andis model RT-1 trimmers"
+      ],
+      "reference_description": "The Shallow Tooth Blade is the replacement blade that first RT-1 model trimmers",
+      "baseline_output": "Andis 04895 Superliner RT-1 Replacement Shallow Tooth T-Blade Features: - Carbon-steel for dependable, long-life blade that stays sharp - Snap on design for easy cleaning and maintenance - Close-cutting T-blade - Replacement for Andis model RT-2 trimmers",
+      "finetuned_output": "Andis 04895 Superliner RT-1 Replacement Shallow Tooth T-Blade",
+      "baseline_rouge1_f1": 0.3704,
+      "finetuned_rouge1_f1": 0.5,
+      "rouge1_gain": 0.1296,
+      "baseline_factual": 0.758,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B016MSZP1W",
+      "product_title": "Polystyrene Plastic 9 Holes Nail Polish Holder",
+      "features": [
+        "Polystyrene 9 hole nail polish holder",
+        "Clear color",
+        "Transparent cosmetic organizer",
+        "Measures 5.1 l x 5.1 w x 2.4 h"
+      ],
+      "reference_description": "Transparent cosmetic organizer 9 hole nail polish holder Made from polystyrene Compliments any d\u00e9cor.",
+      "baseline_output": "Product Description: Polystyrene Plastic 9 Holes Nail Polish Holder Features: - Plastic 9 hole nail polish holder - Clear color - Transparent cosmetic organizer - Measures 5.1l x 5.1 w - 2.4 h",
+      "finetuned_output": "Polystyrene 9 hole nail polish holder Clear color Transparent cosmetic organizer",
+      "baseline_rouge1_f1": 0.3913,
+      "finetuned_rouge1_f1": 0.6923,
+      "rouge1_gain": 0.301,
+      "baseline_factual": 0.26,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B00LGZ7ISA",
+      "product_title": "Hair and Wig Styling Course-Looking Fabulous DVD by Dini Wigs",
+      "features": [
+        "LEARN HOW TO STYLE AND MAINTAIN YOUR WIG",
+        "DVD IS IN ENGLISH"
+      ],
+      "reference_description": "THIS IS THE PERFECT DVD TO LEARN HOW TO STYLE AND MAINTAIN YOUR WIG. PERFECT FOR BEGINNERS OR FOR THE EXPERIENCED. LEARN HOW TO WASH, DRY, WEAR, STORE/SET YOUR WIG.",
+      "baseline_output": "Dini Wigs Hair and Wig Styling Course-Looking Fabulous DVD by Dini WIGs Features: - LEARN HOW TO STYLE AND MAINTAIN YOUR WIG - DVD IS IN ENGLISH Specifications: \u2013 Product Dimensions: 7.5 x 5.2 x0.4 inches; 3.2 Ounces - UPC: 71621469404040",
+      "finetuned_output": "Hair and Wig Styling Course-Looking Fabulous DVD by Dini Wigs",
+      "baseline_rouge1_f1": 0.3014,
+      "finetuned_rouge1_f1": 0.2381,
+      "rouge1_gain": -0.0633,
+      "baseline_factual": 0.329,
+      "finetuned_factual": 1.0
+    }
+  ],
+  "7_brand_only_or_short": [
+    {
+      "product_id": "B09BN6FN7Q",
+      "product_title": "Tendresse Body Wave Ombre 3 Bundles with Closure 1B/30 bundles Brazilian Virgin Human Hair Two-tone 1B/30# 3bundles with Closure(14 16 18 +12)",
+      "features": [
+        "Real Material:1B/30 Body wave bundles with closure 100% brazilian ombre hair,it's soft and smooth,elastic,almost none fork,no chemistry,using advanced heat fumigation disinfection technology,it's safe,so please feel free to use.",
+        "Ombre Hair:1B/30 bundles are personally inspected by technical engineers with 10 years of dyeing experience. The color transition of the entire hair is natural and coherent. Wearing ombre hair to add a touch of color for spring and activate your mood.",
+        "Human Hair Bundles:Omber 1b/30, 10-26 inch available, about 95g-100g/bundle, 3 Bundles with closure can make a full wig of 10-20 inch, 4 bundles are better of 22-28 inches.",
+        "Closure: Swiss Lace, Strong and Invisible,Free Part,with baby hair.Lace Width 5 inch,Lace Length 5 inch.130% Density,Hair Lenght 14inch-20inch,Weight: 35-50g.",
+        "Best Choice:Our ombre body wave bundle is your best choice.It is suit for your wedding& graduation ceremony,vacation & party attendance,family & friends gifts and so on.",
+        "Hair type: Wavy"
+      ],
+      "reference_description": "Omber Body Wave 3 Bundles with Closure,Brazilian Virgin 1B/30 Human Hair Bundles with Closure Body WaveReal Material:1B/30 Body wave bundles with closure 100Percent brazilian ombre hair,it's soft and smooth,elastic,almost none fork,no chemistry,using advanced heat fumigation disinfection technology,it's safe,so please feel free to use.Ombre Hair:1B/30 bundles are personally inspected by technical engineers with 10 years of dyeing experience. The color transition of the entire hair is natural and coherent. Wearing ombre hair to add a touch of color for spring and activate your mood. Human Hair Bundles:Omber 1b/30 bundles, Exquisite Double Weft Tight and Neat,10-26 inch available, about 95g-100gundle, 3 Bundles with closure can make a full wig of 10-20 inch, 4 bundles are better of 22-28 inches.Closure: Swiss Lace, Strong and Invisible,Free Part,closure with baby hair.Lace Width 5 inch,Lace Length 5 inch.130Percent Density,Hair Lenght 10inch-20inch,Weight: 30-50g.Best Choice:Our ombre body wave bundle is your best choice.It is suit for your wedding graduation ceremony,vacation party attendance,family friends gifts and so on.Advantage: Factory Direct s,Affordable with Good Quality, High Costperformance.Features:Natural Color Brazilian Virgin Human Hair,No Shedding, No Tangles, No Split Ends, Bouncy, Lasting Silky Look and Feel Soft.Can Be Dyed,Can Be Straightened,and Curled, And Styled As You like.About Hair Bundles:Hair Texture: Body WaveHair Material: Omber Brazilian Virgin Human HairHair Weight: 95-100g/per bundleHair Color: 1b/30 Hair Length: 10-26inchAbout Lace Clousre:Lace Size: 4x4 inchLace Color: light BrownLace material: Swiss Lace, Strong and InvisibleHair Parting: Free PartClosure Weight: 25g-50g/pcs",
+      "baseline_output": "Hair type: Wavy",
+      "finetuned_output": "Real Material:1B/30 Body wave bundles with closure 100% brazilian ombre hair,it's soft and smooth,elastic,almost none fork,no chemistry,using advanced heat fumigation disinfection technology,it\u2019s safe,so please feel free to use.Ombre Hair:1b/30 bundles are personally inspected by technical engineers with 10 years of dyeing experience. The color transition of the entire hair is natural and coherent. Wearing ombre Hair to add a touch of color for spring and activate your mood.Hair Type:",
+      "baseline_rouge1_f1": 0.0069,
+      "finetuned_rouge1_f1": 0.4355,
+      "rouge1_gain": 0.4286,
+      "baseline_factual": 1.0,
+      "finetuned_factual": 1.0
+    }
+  ],
+  "8_incorrect_misleading": [
+    {
+      "product_id": "B07FTG1CZD",
+      "product_title": "New Charging Charger Stand + Power Cord For Norelco 1150X 1160X RQ1160 RQ1150 SensoTouch Shaver",
+      "features": [
+        "Fits ALL SensoTouch RQ1100 Series Razor models: 1150X, 1160X, 1160CC, 1180X, 1190X, RQ1150, RQ1160, RQ1180",
+        "Picture is accurate, before buying, please refer to the picture to confirm after purchase"
+      ],
+      "reference_description": "Fits ALL SensoTouch RQ1100 Series Razor models: 1150X, 1160X, 1160CC, 1180X, 1190X, RQ1150, RQ1160, RQ1180",
+      "baseline_output": "The new Charging Charger Stand + Power Cord for Norelco 1150X 1160X RQ1160 RQ-1150 SensoTouch Shaver features a 5.2 x 3.7 x 3.0 in diameter.",
+      "finetuned_output": "New Charging Charger Stand + Power Cord For Norelco 1150X 1160X RQ1160 SensoTouch Shaver",
+      "baseline_rouge1_f1": 0.186,
+      "finetuned_rouge1_f1": 0.2857,
+      "rouge1_gain": 0.0997,
+      "baseline_factual": 0.257,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B008CHMHXG",
+      "product_title": "Gabriel + Simone Reading Glasses Reading Glasses - Professeur Gunmetal / Professeur Gunmetal",
+      "features": [
+        "Frame Material: Metal",
+        "Lens Material: Plastic"
+      ],
+      "reference_description": "Gabriel + Simone Professeur are an ultra-lightweight, high quality metal reader that comes with spring hinges for superb comfort & fit. The Aspheric Polycarbonate lenses are scratch-impact resistant and provide crisp optical clarity. All Professeur reading glasses come with a hard case.",
+      "baseline_output": "The product is a product that is designed to be used in a variety of applications.",
+      "finetuned_output": "Gabriel + Simone Reading Glasses reading glasses - Professeur Gunmetal",
+      "baseline_rouge1_f1": 0.1034,
+      "finetuned_rouge1_f1": 0.2,
+      "rouge1_gain": 0.0966,
+      "baseline_factual": 0.2,
+      "finetuned_factual": 1.0
+    },
+    {
+      "product_id": "B0741GJK73",
+      "product_title": "Marc Anthony Strictly Curls Curl Envy 24Hr Treatment 4.5 Ounce (135ml) (6 Pack)",
+      "features": [
+        "6 Pieces - 4.5 Ounce (135ml)",
+        "Hydrate Extra Dry, Coarse, Frizzy Curls,",
+        "All-Day Moisture, Softness And Shine,",
+        "Frizz-Control Without Added Weight,",
+        "Fights Breakage And Split Ends"
+      ],
+      "reference_description": "Hydrate Extra Dry, Coarse, Frizzy Curls, All-Day Moisture, Softness And Shine, Frizz-Control Without Added Weight, Fights Breakage And Split Ends",
+      "baseline_output": "Product Name: Marc Anthony Strictly Curls Curl Envy 24Hr Treatment 4.5 Ounce (135ml) (6 Pack) Features: - 6 Pieces - 3.5 Ounce (5.5 Ounce) - Hydrate Extra Dry, Coarse, Frizz-Control Without Added Weight, - Fights Breakage And Split Ends",
+      "finetuned_output": "hydrate extra dry, coarse, frizzy curls, All-Day Moisture, Softness And Shine, Frizz-Control Without Added Weight, Fights Breakage And Split Ends",
+      "baseline_rouge1_f1": 0.4918,
+      "finetuned_rouge1_f1": 1.0,
+      "rouge1_gain": 0.5082,
+      "baseline_factual": 0.168,
+      "finetuned_factual": 1.0
+    }
+  ]
+}

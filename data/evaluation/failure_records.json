@@ -1,0 +1,42 @@
+{
+  "baseline": {
+    "total_evaluations": 480,
+    "total_failures_detected": 275,
+    "failure_rate_pct": 57.29,
+    "category_counts": {
+      "PROMPT_ECHO": 270,
+      "REPETITIVE_OUTPUT": 16,
+      "UNSUPPORTED_NUMBERS": 16,
+      "BRAND_OR_EXTREMELY_SHORT": 1
+    },
+    "category_rates_pct": {
+      "PROMPT_ECHO": 56.25,
+      "REPETITIVE_OUTPUT": 3.33,
+      "UNSUPPORTED_NUMBERS": 3.33,
+      "BRAND_OR_EXTREMELY_SHORT": 0.21
+    },
+    "severity_counts": {
+      "HIGH": 287,
+      "MEDIUM": 16
+    }
+  },
+  "finetuned": {
+    "total_evaluations": 480,
+    "total_failures_detected": 11,
+    "failure_rate_pct": 2.29,
+    "category_counts": {
+      "REPETITIVE_OUTPUT": 4,
+      "UNSUPPORTED_NUMBERS": 4,
+      "PROMPT_ECHO": 3
+    },
+    "category_rates_pct": {
+      "REPETITIVE_OUTPUT": 0.83,
+      "UNSUPPORTED_NUMBERS": 0.83,
+      "PROMPT_ECHO": 0.62
+    },
+    "severity_counts": {
+      "HIGH": 7,
+      "MEDIUM": 4
+    }
+  }
+}
