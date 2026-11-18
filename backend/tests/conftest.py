@@ -49,6 +49,10 @@ def mock_predictor(mock_prediction_output):
     predictor.device = "cuda:0"
     predictor.checkpoint_path = "checkpoints/sft/best_checkpoint"
     predictor.model = MagicMock()
+    param = MagicMock()
+    param.numel.return_value = 76961152
+    param.dtype = "torch.bfloat16"
+    predictor.model.parameters.return_value = [param]
     predictor.tokenizer = MagicMock()
     predictor.predict.return_value = mock_prediction_output
     return predictor

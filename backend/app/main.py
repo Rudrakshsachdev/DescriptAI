@@ -15,6 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import torch
 
+from backend.app.api.routes.generation import router as generation_router
 from backend.app.api.routes.health import router as health_router
 from backend.app.core.config import get_settings
 from backend.app.core.exceptions import (
@@ -98,10 +99,26 @@ def create_app() -> FastAPI:
     """Application factory creating and configuring the FastAPI instance."""
     settings = get_settings()
 
+    tags_metadata = [
+        {
+            "name": "Health",
+            "description": "Liveness and readiness probes for orchestrators and load balancers.",
+        },
+        {
+            "name": "Generation",
+            "description": "Product description generation powered by fine-tuned FLAN-T5 Seq2Seq model.",
+        },
+        {
+            "name": "Model",
+            "description": "Operational metadata, model architecture, and serving configurations.",
+        },
+    ]
+
     app = FastAPI(
         title=settings.PROJECT_NAME,
         version=settings.VERSION,
         description=settings.DESCRIPTION,
+        openapi_tags=tags_metadata,
         lifespan=lifespan,
         docs_url="/docs" if settings.ENVIRONMENT != "production" else None,
         redoc_url="/redoc" if settings.ENVIRONMENT != "production" else None,
@@ -118,6 +135,7 @@ def create_app() -> FastAPI:
 
     # Register Routers
     app.include_router(health_router)
+    app.include_router(generation_router, prefix=settings.API_V1_STR)
 
     # Exception Handlers
     @app.exception_handler(ModelNotReadyException)
