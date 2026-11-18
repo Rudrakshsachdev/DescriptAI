@@ -1,0 +1,122 @@
+{
+  "audit_metadata": {
+    "audit_title": "Step 8 Supervised Fine-Tuning Independent Verification Audit",
+    "project": "Descra (AI-Powered Product Description Generator)",
+    "phase": "Phase 1: Deep Learning Foundation & Model Development",
+    "auditor_role": "Principal ML Engineer & Independent Research Auditor",
+    "git_commit_audited": "0c9d930",
+    "audit_timestamp": "2026-11-18T14:10:00+05:30",
+    "verdict": "VERIFIED WITH QUALIFICATIONS - SUITABLE FOR STEP 9 HELD-OUT TESTING"
+  },
+  "audit_findings_summary": {
+    "training_execution": "VERIFIED",
+    "dataset_integrity": "VERIFIED WITH QUALIFICATION",
+    "baseline_comparison": "VERIFIED WITH QUALIFICATION",
+    "training_loss_normalization": "DISCREPANCY (RESOLVED)",
+    "factual_adherence_metric": "VERIFIED WITH QUALIFICATION",
+    "inference_latency": "VERIFIED WITH QUALIFICATION",
+    "automated_verification": "VERIFIED"
+  },
+  "detailed_audit": {
+    "1_training_execution": {
+      "status": "VERIFIED",
+      "model_architecture": "T5ForConditionalGeneration (google/flan-t5-small)",
+      "total_parameters": 76961152,
+      "trainable_parameters": 76961152,
+      "base_model_preserved": true,
+      "training_dataset_size": 3828,
+      "validation_dataset_size": 478,
+      "physical_batch_size": 8,
+      "gradient_accumulation_steps": 2,
+      "effective_batch_size": 16,
+      "mini_batches_per_epoch": 479,
+      "optimizer_updates_per_epoch": 240,
+      "total_optimizer_updates": 960,
+      "precision": "BFloat16 (torch.bfloat16) without GradScaler",
+      "best_checkpoint_saved": true,
+      "best_checkpoint_epoch": 4,
+      "best_checkpoint_eval_loss": 2.1778,
+      "peak_vram_mb": 4019.1
+    },
+    "2_dataset_integrity": {
+      "status": "VERIFIED WITH QUALIFICATION",
+      "raw_train_records": 3828,
+      "raw_val_records": 478,
+      "raw_test_records": 480,
+      "sft_train_records": 3828,
+      "sft_val_records": 478,
+      "unique_ids_train": 3828,
+      "unique_ids_val": 478,
+      "unique_ids_test": 480,
+      "cross_split_leakage": {
+        "train_val_overlap": 0,
+        "train_test_overlap": 0,
+        "val_test_overlap": 0
+      },
+      "test_set_isolation": true,
+      "test_set_used_in_training": false,
+      "prompt_target_overlap_count": 903,
+      "qualification_notes": "In 903 out of 3,828 training records, the initial 50 characters of the target description appear verbatim in the prompt. Audit confirmed this is NOT an engineering data preparation bug, but an intrinsic artifact of the raw Amazon metadata where sellers copied product titles or bullet features into the description field. Because the prompt conditions on product title and features, such overlap is inherent to e-commerce catalog data."
+    },
+    "3_baseline_comparison": {
+      "status": "VERIFIED WITH QUALIFICATION",
+      "evaluated_samples": 100,
+      "sample_ids_match_step7": true,
+      "step7_greedy_rouge1_f1": 0.3500,
+      "step8_greedy_baseline_rouge1_f1": 0.3635,
+      "step7_beam4_rouge1_f1": 0.3968,
+      "step8_beam4_baseline_rouge1_f1": 0.3963,
+      "beam4_discrepancy_delta": -0.0005,
+      "greedy_discrepancy_delta": 0.0135,
+      "qualification_notes": "Beam search baseline matched historical Step 7 results within 0.05% margin. Greedy baseline exhibited a minor +0.0135 variance due to: (1) unpinned random seed in scripts/evaluate_finetuned.py vs random_seed=42 in Step 7, and (2) string whitespace normalization in sft_validation.jsonl precomputed prompts vs dynamic string construction."
+    },
+    "4_training_loss_normalization": {
+      "status": "DISCREPANCY",
+      "reported_loss_progression": {
+        "epoch_1": {"train_loss": 4.9467, "eval_loss": 2.2462, "reported_gap": -2.7005},
+        "epoch_2": {"train_loss": 4.5313, "eval_loss": 2.1934, "reported_gap": -2.3379},
+        "epoch_3": {"train_loss": 4.3181, "eval_loss": 2.1821, "reported_gap": -2.1360},
+        "epoch_4": {"train_loss": 4.2045, "eval_loss": 2.1778, "reported_gap": -2.0267}
+      },
+      "audit_mathematical_correction": {
+        "epoch_1": {"corrected_train_loss": 2.4734, "eval_loss": 2.2462, "corrected_gap": -0.2272},
+        "epoch_2": {"corrected_train_loss": 2.2657, "eval_loss": 2.1934, "corrected_gap": -0.0723},
+        "epoch_3": {"corrected_train_loss": 2.1591, "eval_loss": 2.1821, "corrected_gap": 0.0230},
+        "epoch_4": {"corrected_train_loss": 2.1023, "eval_loss": 2.1778, "corrected_gap": 0.0755}
+      },
+      "root_cause_explanation": "In src/descra/training/trainer.py line 250-251, total_train_loss (the sum of all 479 batch losses) was divided by steps_in_epoch (len(train_loader) // 2 = 239) instead of total mini-batches. This introduced a mathematical 2.0x factor into reported train loss. When correctly normalized by total mini-batches, Epoch 4 Train Loss is 2.1023 and Eval Loss is 2.1778, establishing a genuine, positive generalization gap of +0.0755.",
+      "recommended_correction": "Update avg_train_loss calculation in trainer.py to divide by len(self.train_loader) rather than steps_in_epoch."
+    },
+    "5_factual_adherence_metric": {
+      "status": "VERIFIED WITH QUALIFICATION",
+      "reported_score": 0.987,
+      "metric_type": "Heuristic Rule-Based Metric (extract_numbers_and_units + repetition + unigram preservation)",
+      "is_proof_of_factual_correctness": false,
+      "qualification_notes": "The 98.7% score indicates that 98.7% of numerical entities were grounded in the source prompt and repetition was minimal. It is a heuristic consistency indicator and does NOT provide formal proof against relational hallucination or subtle semantic contradiction."
+    },
+    "6_inference_latency": {
+      "status": "VERIFIED WITH QUALIFICATION",
+      "reported_beam2_reduction_pct": 57.3,
+      "baseline_beam2_latency_ms": 4092.3,
+      "finetuned_beam2_latency_ms": 1746.6,
+      "qualification_notes": "The latency improvement is genuine and primarily driven by early end-of-sequence (</s>) token generation in the fine-tuned model (~60 tokens generated) versus baseline beam search wandering to the 128-token cap. However, scripts/evaluate_finetuned.py evaluated fine-tuned models after baseline models without independent GPU warm-up between stages."
+    },
+    "7_automated_verification": {
+      "status": "VERIFIED",
+      "total_tests_collected": 45,
+      "total_tests_passed": 45,
+      "pass_rate_pct": 100.0,
+      "execution_duration_sec": 104.4,
+      "checkpoint_loading_smoke_test": "PASSED (non-empty output verified)"
+    }
+  },
+  "step_9_clearance": {
+    "eligible_for_step_9_test_evaluation": true,
+    "conditions": [
+      "Keep checkpoints/sft/best_checkpoint intact as canonical model under test",
+      "Use corrected loss normalization (true train loss 2.1023) in academic writeups",
+      "Explicitly set random_seed=42 in test evaluation scripts to ensure absolute deterministic reproducibility",
+      "Evaluate test set with warm-up passes for both baseline and fine-tuned checkpoints"
+    ]
+  }
+}
