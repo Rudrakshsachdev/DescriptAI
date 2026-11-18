@@ -226,3 +226,4 @@ The baseline evaluation establishes three foundational deep learning realities f
 2. **Learning Rate & Optimizer:** AdamW with $\text{lr} = 5 \times 10^{-4}$, linear warmup for 10% of total steps, and cosine decay.
 3. **Mixed Precision:** Maintain `fp16=True` using PyTorch AMP (`torch.cuda.amp.autocast`) for $2\times$ training throughput.
 4. **Evaluation Strategy:** Evaluate every 200 steps on `data/processed/validation.jsonl` tracking ROUGE-2 and validation loss to implement early stopping (patience = 3 epochs).
+

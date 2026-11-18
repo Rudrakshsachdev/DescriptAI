@@ -5,11 +5,13 @@ from descra.evaluation.factual_checks import verify_factual_adherence
 from descra.evaluation.metrics import (
     calculate_bleu,
     calculate_rouge,
+    calculate_sentence_bleu,
     compute_generation_metrics,
 )
 
 __all__ = [
     "calculate_bleu",
+    "calculate_sentence_bleu",
     "calculate_rouge",
     "compute_generation_metrics",
     "verify_factual_adherence",

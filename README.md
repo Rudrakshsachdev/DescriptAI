@@ -110,6 +110,12 @@ descra/
 .\.venv\Scripts\python.exe scripts/benchmark_baseline.py
 ```
 
+### Step 7: Systematic Baseline Experimentation (5 Decoding Strategies & Failure Analysis)
+```powershell
+# Executes 500 generation passes across greedy, beam search (2 & 4 beams), and sampling (temp 0.7 & 1.0)
+.\.venv\Scripts\python.exe scripts/run_experiments.py --sample-size 100
+```
+
 ### Automated Pytest Suite
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests/ -v

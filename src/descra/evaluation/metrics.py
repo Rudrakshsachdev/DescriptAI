@@ -10,12 +10,42 @@ from descra.utils.logging import get_logger
 logger = get_logger("descra.evaluation.metrics")
 
 
-def calculate_bleu(predictions: List[str], references: List[str]) -> Dict[str, float]:
-    """Calculates corpus and sentence-level BLEU scores using SacreBLEU.
+def calculate_sentence_bleu(
+    prediction: str,
+    reference: str,
+    smooth_method: str = "exp",
+) -> float:
+    """Calculates sentence-level BLEU score using SacreBLEU with smoothing.
+
+    Args:
+        prediction: Generated text hypothesis.
+        reference: Ground truth reference string.
+        smooth_method: Smoothing method ('exp', 'floor', 'add-k', 'none').
+
+    Returns:
+        Sentence BLEU score (0.0 to 100.0).
+    """
+    clean_p = prediction.strip() if prediction and prediction.strip() else "<empty>"
+    clean_r = reference.strip() if reference and reference.strip() else "<empty>"
+    try:
+        score = sacrebleu.sentence_bleu(clean_p, [clean_r], smooth_method=smooth_method).score
+        return round(float(score), 2)
+    except Exception as e:
+        logger.warning(f"Sentence BLEU calculation error: {e}")
+        return 0.0
+
+
+def calculate_bleu(
+    predictions: List[str],
+    references: List[str],
+    smooth_method: str = "exp",
+) -> Dict[str, float]:
+    """Calculates corpus and n-gram precision BLEU scores using SacreBLEU.
 
     Args:
         predictions: Generated text hypotheses.
         references: Ground truth target strings.
+        smooth_method: SacreBLEU smoothing method (default 'exp').
 
     Returns:
         Dictionary containing corpus_bleu, bleu_1, bleu_2, bleu_3, bleu_4.
@@ -24,10 +54,11 @@ def calculate_bleu(predictions: List[str], references: List[str]) -> Dict[str, f
         return {"corpus_bleu": 0.0, "bleu_1": 0.0, "bleu_2": 0.0, "bleu_3": 0.0, "bleu_4": 0.0}
 
     # Clean empty strings
-    clean_preds = [p if p.strip() else "<empty>" for p in predictions]
-    clean_refs = [[r] for r in references]
+    clean_preds = [p.strip() if p and p.strip() else "<empty>" for p in predictions]
+    clean_refs = [r.strip() if r and r.strip() else "<empty>" for r in references]
 
-    bleu = sacrebleu.corpus_bleu(clean_preds, clean_refs)
+    # In SacreBLEU, references must be a list of reference streams: [ref_stream_1, ...]
+    bleu = sacrebleu.corpus_bleu(clean_preds, [clean_refs], smooth_method=smooth_method)
 
     # Calculate individual n-gram precisions
     precisions = bleu.precisions if hasattr(bleu, "precisions") else [0.0, 0.0, 0.0, 0.0]

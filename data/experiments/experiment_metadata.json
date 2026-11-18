@@ -1,0 +1,439 @@
+{
+  "experiment_id": "EXP-BASELINE-FLANT5-001",
+  "experiment_timestamp": "2026-11-18T05:43:22.531732+00:00",
+  "git_commit_hash": "00570977a796f992ab5f774ce49103eba726a2d7",
+  "model_metadata": {
+    "model_name": "google/flan-t5-small",
+    "model_revision": "main",
+    "architecture": "Seq2SeqLM (FLAN-T5-small)",
+    "precision": "FP16 (torch.float16)",
+    "total_parameters": 76961152
+  },
+  "dataset_metadata": {
+    "source": "data/processed/validation.jsonl",
+    "version": "v1.0 (Amazon Reviews 2023 - All_Beauty)",
+    "total_evaluated_samples": 100,
+    "sample_ids": [
+      "B07B2N36S5",
+      "B09N9VH2WW",
+      "B00JNRWMYI",
+      "B074XQP3B5",
+      "B08W53WBGB",
+      "B017QJYWZ6",
+      "B07VHKCF13",
+      "B075RFYVH9",
+      "B012ADVYZO",
+      "B00PB48T7G",
+      "B01LL1AT3E",
+      "B00IHI0NSG",
+      "B07Y43XPT4",
+      "B08XZNXPVV",
+      "B00VU7YSVY",
+      "B092M6PJD4",
+      "B0836Z4XPH",
+      "B09KPLKFNP",
+      "B00157OBRU",
+      "B0191Y89UI",
+      "B00LO59NKI",
+      "B00IG3L7CI",
+      "B08SHQPRD1",
+      "B074CNJQNK",
+      "B07FN8MCZB",
+      "B07CKTWB2N",
+      "B000S94J00",
+      "B07KWKZT7K",
+      "B071YVXNVP",
+      "B01IUNL818",
+      "B01N4D1L4O",
+      "B09YHG4T5Y",
+      "B00GMPDFKY",
+      "B009S3DV8I",
+      "B00S8STF3E",
+      "B07BH4Q1CL",
+      "B07T8BRV27",
+      "B016X5F816",
+      "B0195NGT8O",
+      "B07JD4X5VZ",
+      "B00RJ4WVCK",
+      "B083C5D4Q9",
+      "B00LICAMXO",
+      "B06VSX2B1S",
+      "B00C7XQYBW",
+      "B095RBLCCB",
+      "B0CCSW2DL9",
+      "B08C9F2SZ8",
+      "B07SSVSYLZ",
+      "B01GUXUMZ8",
+      "B07D78STS5",
+      "B06XHNN74Y",
+      "B01CR42CP2",
+      "B08RJBJ59R",
+      "B00TP1IZDE",
+      "B08NZVND9F",
+      "B01FEZRIG4",
+      "B07S9C9BL8",
+      "B00CTIZ9GQ",
+      "B06XNNX313",
+      "B0876X4XGM",
+      "B001PMGWJK",
+      "B09XZ8L3TL",
+      "B00JRRRPZ0",
+      "B01GJ0H1YC",
+      "B0174VGWG8",
+      "B07XRZ1M8P",
+      "B00J72T0P8",
+      "B003USB6CU",
+      "B002EJ2AG2",
+      "B0012UL1R8",
+      "B076VPCXJC",
+      "B003I5SFXI",
+      "B06X8Z2YTY",
+      "B094QR7NTP",
+      "B00KGGYNME",
+      "B001S4C9CE",
+      "B00NV69XHG",
+      "B00Y71DURS",
+      "B01M99C81L",
+      "B01FXIC1H8",
+      "B007RFDXAA",
+      "B08BQY7GSP",
+      "B01N49JSP5",
+      "B07MZ7464C",
+      "B0728CTKYR",
+      "B003H1F9PU",
+      "B010SZWNP6",
+      "B00WS17K0C",
+      "B0B8GT3M3W",
+      "B01N6FXECH",
+      "B00HV935PK",
+      "B00CTN8CY2",
+      "B00E37Q25S",
+      "B07GNCNYFD",
+      "B013LOZ3XU",
+      "B000NNNHI6",
+      "B01IWLZSLO",
+      "B012DSKRAO",
+      "B00ELBT4FG"
+    ],
+    "category_coverage": [
+      "All_Beauty"
+    ]
+  },
+  "prompt_metadata": {
+    "prompt_template_version": "v1.0 (Attribute conditioned with negative constraint)",
+    "negative_constraint_applied": true
+  },
+  "strategies_metadata": {
+    "strategies_evaluated": [
+      "greedy",
+      "beam_search_2",
+      "beam_search_4",
+      "sampling_conservative",
+      "sampling_creative"
+    ],
+    "configurations": {
+      "greedy": {
+        "num_beams": 1,
+        "do_sample": false,
+        "max_new_tokens": 128
+      },
+      "beam_search_2": {
+        "num_beams": 2,
+        "do_sample": false,
+        "early_stopping": true,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 3,
+        "max_new_tokens": 128
+      },
+      "beam_search_4": {
+        "num_beams": 4,
+        "do_sample": false,
+        "early_stopping": true,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 3,
+        "max_new_tokens": 128
+      },
+      "sampling_conservative": {
+        "num_beams": 1,
+        "do_sample": true,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "top_k": 50,
+        "max_new_tokens": 128
+      },
+      "sampling_creative": {
+        "num_beams": 1,
+        "do_sample": true,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 40,
+        "max_new_tokens": 128
+      }
+    },
+    "random_seed": 42
+  },
+  "environment_metadata": {
+    "python_version": "3.10.11",
+    "pytorch_version": "2.6.0+cu124",
+    "transformers_version": "5.20.2",
+    "cuda_available": true,
+    "cuda_runtime_version": "12.4",
+    "execution_device": "cuda:0",
+    "gpu_hardware": {
+      "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "total_vram_mb": 6140.5,
+      "cuda_device_index": 0
+    },
+    "warmup_time_sec": 1.694
+  },
+  "evaluation_results_summary": {
+    "greedy": {
+      "strategy_name": "greedy",
+      "description": "Deterministic greedy search selecting the single highest-probability token at each step.",
+      "parameters": {
+        "num_beams": 1,
+        "do_sample": false,
+        "max_new_tokens": 128
+      },
+      "sample_count": 100,
+      "metrics": {
+        "bleu": {
+          "corpus_bleu": 11.29,
+          "bleu_1": 35.58,
+          "bleu_2": 20.08,
+          "bleu_3": 15.52,
+          "bleu_4": 12.92
+        },
+        "rouge": {
+          "rouge1_f1": 0.35,
+          "rouge1_recall": 0.4044,
+          "rouge1_precision": 0.4506,
+          "rouge2_f1": 0.2325,
+          "rouge2_recall": 0.2826,
+          "rouge2_precision": 0.2769,
+          "rougeL_f1": 0.2959,
+          "rougeL_recall": 0.3488,
+          "rougeL_precision": 0.3808
+        },
+        "mean_sentence_bleu": 12.09
+      },
+      "factual_adherence": {
+        "mean_consistency_score": 0.797,
+        "median_consistency_score": 0.964,
+        "mean_input_token_preservation": 0.842,
+        "mean_unsupported_numbers_per_sample": 0.06,
+        "samples_with_unsupported_numbers": 5
+      },
+      "performance": {
+        "mean_latency_ms": 1636.22,
+        "median_latency_ms": 1506.88,
+        "p90_latency_ms": 3016.75,
+        "p95_latency_ms": 3198.45,
+        "min_latency_ms": 112.59,
+        "max_latency_ms": 4177.26,
+        "mean_tokens_per_second": 44.29
+      }
+    },
+    "beam_search_2": {
+      "strategy_name": "beam_search_2",
+      "description": "Lightweight beam search tracking 2 active hypotheses with tri-gram repetition blocking.",
+      "parameters": {
+        "num_beams": 2,
+        "do_sample": false,
+        "early_stopping": true,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 3,
+        "max_new_tokens": 128
+      },
+      "sample_count": 100,
+      "metrics": {
+        "bleu": {
+          "corpus_bleu": 14.06,
+          "bleu_1": 39.93,
+          "bleu_2": 23.65,
+          "bleu_3": 18.57,
+          "bleu_4": 15.73
+        },
+        "rouge": {
+          "rouge1_f1": 0.4117,
+          "rouge1_recall": 0.44,
+          "rouge1_precision": 0.5261,
+          "rouge2_f1": 0.2906,
+          "rouge2_recall": 0.3173,
+          "rouge2_precision": 0.3486,
+          "rougeL_f1": 0.3475,
+          "rougeL_recall": 0.3758,
+          "rougeL_precision": 0.4378
+        },
+        "mean_sentence_bleu": 17.04
+      },
+      "factual_adherence": {
+        "mean_consistency_score": 0.922,
+        "median_consistency_score": 1.0,
+        "mean_input_token_preservation": 0.959,
+        "mean_unsupported_numbers_per_sample": 0.05,
+        "samples_with_unsupported_numbers": 5
+      },
+      "performance": {
+        "mean_latency_ms": 2634.89,
+        "median_latency_ms": 2465.27,
+        "p90_latency_ms": 4710.77,
+        "p95_latency_ms": 5736.18,
+        "min_latency_ms": 268.72,
+        "max_latency_ms": 10606.22,
+        "mean_tokens_per_second": 31.12
+      }
+    },
+    "beam_search_4": {
+      "strategy_name": "beam_search_4",
+      "description": "Standard beam search tracking 4 active hypotheses (canonical Step 6 baseline comparison).",
+      "parameters": {
+        "num_beams": 4,
+        "do_sample": false,
+        "early_stopping": true,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 3,
+        "max_new_tokens": 128
+      },
+      "sample_count": 100,
+      "metrics": {
+        "bleu": {
+          "corpus_bleu": 13.82,
+          "bleu_1": 38.98,
+          "bleu_2": 23.45,
+          "bleu_3": 18.44,
+          "bleu_4": 15.54
+        },
+        "rouge": {
+          "rouge1_f1": 0.3968,
+          "rouge1_recall": 0.4322,
+          "rouge1_precision": 0.5097,
+          "rouge2_f1": 0.28,
+          "rouge2_recall": 0.3146,
+          "rouge2_precision": 0.3354,
+          "rougeL_f1": 0.3358,
+          "rougeL_recall": 0.3717,
+          "rougeL_precision": 0.4251
+        },
+        "mean_sentence_bleu": 16.28
+      },
+      "factual_adherence": {
+        "mean_consistency_score": 0.961,
+        "median_consistency_score": 1.0,
+        "mean_input_token_preservation": 0.989,
+        "mean_unsupported_numbers_per_sample": 0.02,
+        "samples_with_unsupported_numbers": 2
+      },
+      "performance": {
+        "mean_latency_ms": 2074.4,
+        "median_latency_ms": 1983.73,
+        "p90_latency_ms": 3421.02,
+        "p95_latency_ms": 3546.41,
+        "min_latency_ms": 377.6,
+        "max_latency_ms": 3709.23,
+        "mean_tokens_per_second": 34.47
+      }
+    },
+    "sampling_conservative": {
+      "strategy_name": "sampling_conservative",
+      "description": "Stochastic nucleus sampling with temperature 0.7, top-p 0.90, and top-k 50 for balanced novelty.",
+      "parameters": {
+        "num_beams": 1,
+        "do_sample": true,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "top_k": 50,
+        "max_new_tokens": 128
+      },
+      "sample_count": 100,
+      "metrics": {
+        "bleu": {
+          "corpus_bleu": 5.42,
+          "bleu_1": 34.97,
+          "bleu_2": 17.75,
+          "bleu_3": 13.98,
+          "bleu_4": 11.68
+        },
+        "rouge": {
+          "rouge1_f1": 0.2654,
+          "rouge1_recall": 0.293,
+          "rouge1_precision": 0.4099,
+          "rouge2_f1": 0.1657,
+          "rouge2_recall": 0.2055,
+          "rouge2_precision": 0.2106,
+          "rougeL_f1": 0.2218,
+          "rougeL_recall": 0.2538,
+          "rougeL_precision": 0.3381
+        },
+        "mean_sentence_bleu": 9.03
+      },
+      "factual_adherence": {
+        "mean_consistency_score": 0.66,
+        "median_consistency_score": 0.75,
+        "mean_input_token_preservation": 0.715,
+        "mean_unsupported_numbers_per_sample": 0.21,
+        "samples_with_unsupported_numbers": 10
+      },
+      "performance": {
+        "mean_latency_ms": 1217.39,
+        "median_latency_ms": 830.5,
+        "p90_latency_ms": 3027.31,
+        "p95_latency_ms": 3246.85,
+        "min_latency_ms": 80.36,
+        "max_latency_ms": 3918.77,
+        "mean_tokens_per_second": 41.78
+      }
+    },
+    "sampling_creative": {
+      "strategy_name": "sampling_creative",
+      "description": "Higher temperature stochastic sampling (temp 1.0, top-p 0.95, top-k 40) testing vocabulary diversity.",
+      "parameters": {
+        "num_beams": 1,
+        "do_sample": true,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 40,
+        "max_new_tokens": 128
+      },
+      "sample_count": 100,
+      "metrics": {
+        "bleu": {
+          "corpus_bleu": 3.07,
+          "bleu_1": 32.03,
+          "bleu_2": 13.65,
+          "bleu_3": 10.52,
+          "bleu_4": 9.05
+        },
+        "rouge": {
+          "rouge1_f1": 0.1935,
+          "rouge1_recall": 0.2021,
+          "rouge1_precision": 0.3284,
+          "rouge2_f1": 0.0923,
+          "rouge2_recall": 0.1082,
+          "rouge2_precision": 0.1355,
+          "rougeL_f1": 0.1563,
+          "rougeL_recall": 0.1672,
+          "rougeL_precision": 0.2623
+        },
+        "mean_sentence_bleu": 5.13
+      },
+      "factual_adherence": {
+        "mean_consistency_score": 0.502,
+        "median_consistency_score": 0.44,
+        "mean_input_token_preservation": 0.554,
+        "mean_unsupported_numbers_per_sample": 0.28,
+        "samples_with_unsupported_numbers": 12
+      },
+      "performance": {
+        "mean_latency_ms": 1315.81,
+        "median_latency_ms": 810.12,
+        "p90_latency_ms": 3016.32,
+        "p95_latency_ms": 3954.13,
+        "min_latency_ms": 119.39,
+        "max_latency_ms": 8557.32,
+        "mean_tokens_per_second": 37.6
+      }
+    }
+  },
+  "experiment_status": "COMPLETED"
+}
