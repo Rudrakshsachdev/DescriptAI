@@ -42,3 +42,12 @@ Thumbs.db
 .idea/
 *.swp
 
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+frontend/out/
+frontend/.env*.local
+
+
