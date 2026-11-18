@@ -11,6 +11,7 @@ if src_path not in sys.path:
     sys.path.insert(0, src_path)
 
 from fastapi import FastAPI, Request, status
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import torch
@@ -20,8 +21,10 @@ from backend.app.api.routes.health import router as health_router
 from backend.app.core.config import get_settings
 from backend.app.core.exceptions import (
     DescriptAIException,
+    InferenceTimeoutException,
     ModelInferenceException,
     ModelNotReadyException,
+    ServiceOverloadedException,
 )
 from backend.app.core.logging import get_logger, setup_logging
 from backend.app.services.generation import GenerationService
@@ -84,6 +87,11 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     # 2. Shutdown & Resource Cleanup
     logger.info("Executing graceful shutdown for %s...", settings.PROJECT_NAME)
+    generation_service = getattr(app.state, "generation_service", None)
+    if generation_service is not None:
+        inference_idle = await generation_service.wait_for_inference_idle(timeout=5.0)
+        if not inference_idle:
+            logger.warning("Shutdown continuing while inference work is still active.")
     if hasattr(app.state, "predictor") and app.state.predictor is not None:
         del app.state.predictor
     if hasattr(app.state, "generation_service") and app.state.generation_service is not None:
@@ -154,12 +162,60 @@ def create_app() -> FastAPI:
             content={"error": "inference_error", "message": exc.message},
         )
 
+    @app.exception_handler(InferenceTimeoutException)
+    async def inference_timeout_handler(
+        request: Request,
+        exc: InferenceTimeoutException,
+    ) -> JSONResponse:
+        logger.warning("Inference timeout: %s", exc.message)
+        return JSONResponse(
+            status_code=status.HTTP_504_GATEWAY_TIMEOUT,
+            content={"error": "inference_timeout", "message": exc.message},
+        )
+
+    @app.exception_handler(ServiceOverloadedException)
+    async def service_overloaded_handler(
+        request: Request,
+        exc: ServiceOverloadedException,
+    ) -> JSONResponse:
+        logger.warning("Inference overload: %s", exc.message)
+        return JSONResponse(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            content={"error": "service_overloaded", "message": exc.message},
+        )
+
     @app.exception_handler(DescriptAIException)
     async def generic_domain_handler(request: Request, exc: DescriptAIException) -> JSONResponse:
         logger.warning("DescriptAIException: %s", exc.message)
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={"error": "bad_request", "message": exc.message},
+        )
+
+    @app.exception_handler(RequestValidationError)
+    async def validation_handler(
+        request: Request,
+        exc: RequestValidationError,
+    ) -> JSONResponse:
+        logger.warning("Request validation failed: %s", exc.errors())
+        return JSONResponse(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            content={
+                "error": "validation_error",
+                "message": "The request contains invalid parameters.",
+                "details": exc.errors(),
+            },
+        )
+
+    @app.exception_handler(Exception)
+    async def unexpected_error_handler(request: Request, exc: Exception) -> JSONResponse:
+        logger.error("Unexpected application error: %s", exc, exc_info=True)
+        return JSONResponse(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            content={
+                "error": "internal_error",
+                "message": "An unexpected server error occurred.",
+            },
         )
 
     return app

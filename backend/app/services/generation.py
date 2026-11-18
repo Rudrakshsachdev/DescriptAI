@@ -3,8 +3,14 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from backend.app.core.concurrency import InferenceConcurrencyLimiter
 from backend.app.core.config import get_settings
-from backend.app.core.exceptions import ModelInferenceException, ModelNotReadyException
+from backend.app.core.exceptions import (
+    InferenceTimeoutException,
+    ModelInferenceException,
+    ModelNotReadyException,
+    ServiceOverloadedException,
+)
 from backend.app.core.logging import get_logger
 from backend.app.schemas.generation import GenerationConfigSchema, ProductDescriptionRequest
 from backend.app.schemas.model_info import ModelInfoData
@@ -20,10 +26,19 @@ class GenerationService:
         """Initializes service with an existing predictor instance."""
         self._predictor = predictor
         self._settings = get_settings()
+        self._inference_limiter = InferenceConcurrencyLimiter(
+            max_concurrent=self._settings.MAX_CONCURRENT_INFERENCE_REQUESTS,
+            capacity_wait_seconds=self._settings.INFERENCE_CAPACITY_WAIT_SECONDS,
+            inference_timeout_seconds=self._settings.INFERENCE_TIMEOUT_SECONDS,
+        )
 
     @property
     def predictor(self) -> Optional[DescriptionPredictor]:
         return self._predictor
+
+    async def wait_for_inference_idle(self, timeout: Optional[float] = None) -> bool:
+        """Waits for active process-local inference before application shutdown."""
+        return await self._inference_limiter.wait_for_idle(timeout=timeout)
 
     @predictor.setter
     def predictor(self, value: DescriptionPredictor) -> None:
@@ -156,6 +171,78 @@ class GenerationService:
                 message="An error occurred while generating the product description.",
                 details={"error_type": type(e).__name__},
             ) from e
+
+    async def generate_async(
+        self,
+        product_name: str,
+        features: Optional[List[str]] = None,
+        category: Optional[str] = None,
+        brand: Optional[str] = None,
+        num_beams: Optional[int] = None,
+        max_new_tokens: Optional[int] = None,
+        specifications: Optional[Dict[str, str]] = None,
+        audience: Optional[str] = None,
+        config: Optional[GenerationConfigSchema] = None,
+    ) -> PredictionOutput:
+        """Runs synchronous model inference without blocking or overloading the event loop."""
+        if not self.is_ready or self._predictor is None:
+            logger.error("Inference rejected: ModelPredictor is not initialized.")
+            raise ModelNotReadyException("Description generation model is not loaded or ready.")
+
+        gen_config = self._resolve_generation_config(
+            config_override=config,
+            num_beams=num_beams,
+            max_new_tokens=max_new_tokens,
+        )
+        all_features = self._build_features_list(
+            features=features,
+            specifications=specifications,
+            audience=audience,
+        )
+
+        logger.debug(
+            "Queued description inference for product: '%s'",
+            product_name[:50],
+        )
+        try:
+            output = await self._inference_limiter.run(
+                self._predictor.predict,
+                product_name=product_name,
+                features=all_features,
+                category=category,
+                brand=brand,
+                config=gen_config,
+            )
+        except (ModelNotReadyException, InferenceTimeoutException, ServiceOverloadedException):
+            raise
+        except Exception as exc:
+            logger.error("Model inference failed unexpectedly: %s", exc, exc_info=True)
+            raise ModelInferenceException(
+                message="An error occurred while generating the product description.",
+                details={"error_type": type(exc).__name__},
+            ) from exc
+        logger.info(
+            "Inference complete: %d tokens generated in %.1f ms (%s)",
+            output.output_tokens,
+            output.latency_ms,
+            output.strategy,
+        )
+        return output
+
+    async def generate_from_request_async(
+        self,
+        request: ProductDescriptionRequest,
+    ) -> PredictionOutput:
+        """High-level asynchronous generator preserving the existing request contract."""
+        return await self.generate_async(
+            product_name=request.product_name,
+            features=request.features,
+            category=request.category,
+            brand=request.brand,
+            specifications=request.specifications,
+            audience=request.audience,
+            config=request.generation_config,
+        )
 
     def generate_from_request(self, request: ProductDescriptionRequest) -> PredictionOutput:
         """High-level generator parsing validated ProductDescriptionRequest."""

@@ -29,3 +29,14 @@ def test_custom_environment_settings(monkeypatch):
     custom_settings = Settings()
     assert custom_settings.DEFAULT_NUM_BEAMS == 4
     assert custom_settings.DEVICE == "cpu"
+
+
+def test_reliability_environment_settings(monkeypatch):
+    monkeypatch.setenv("INFERENCE_TIMEOUT_SECONDS", "12")
+    monkeypatch.setenv("INFERENCE_CAPACITY_WAIT_SECONDS", "0.5")
+    monkeypatch.setenv("MAX_CONCURRENT_INFERENCE_REQUESTS", "2")
+
+    custom_settings = Settings()
+    assert custom_settings.INFERENCE_TIMEOUT_SECONDS == 12.0
+    assert custom_settings.INFERENCE_CAPACITY_WAIT_SECONDS == 0.5
+    assert custom_settings.MAX_CONCURRENT_INFERENCE_REQUESTS == 2

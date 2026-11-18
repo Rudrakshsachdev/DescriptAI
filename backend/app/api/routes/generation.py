@@ -43,6 +43,7 @@ def get_generation_service(request: Request) -> GenerationService:
         422: {"description": "Validation error on required input fields."},
         500: {"description": "Internal model inference failure."},
         503: {"description": "Model weights unmounted or service not ready."},
+        504: {"description": "Inference exceeded the configured request timeout."},
     },
 )
 async def generate_product_description(
@@ -52,7 +53,7 @@ async def generate_product_description(
     """Receives validated product attributes and returns generated description with metadata."""
     logger.info("Received description generation request for product: '%s'", request_data.product_name)
 
-    prediction = service.generate_from_request(request_data)
+    prediction = await service.generate_from_request_async(request_data)
 
     generation_data = GenerationData(
         generated_description=prediction.generated_description,

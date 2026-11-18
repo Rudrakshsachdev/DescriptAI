@@ -48,6 +48,32 @@ class Settings(BaseSettings):
     DEFAULT_NO_REPEAT_NGRAM_SIZE: int = 3
     DEFAULT_LENGTH_PENALTY: float = 1.0
 
+    # Reliability & Serving Limits
+    INFERENCE_TIMEOUT_SECONDS: float = 30.0
+    INFERENCE_CAPACITY_WAIT_SECONDS: float = 0.25
+    MAX_CONCURRENT_INFERENCE_REQUESTS: int = 1
+
+    @field_validator("INFERENCE_TIMEOUT_SECONDS")
+    @classmethod
+    def validate_inference_timeout(cls, value: float) -> float:
+        if value <= 0:
+            raise ValueError("INFERENCE_TIMEOUT_SECONDS must be positive.")
+        return value
+
+    @field_validator("INFERENCE_CAPACITY_WAIT_SECONDS")
+    @classmethod
+    def validate_capacity_wait(cls, value: float) -> float:
+        if value < 0:
+            raise ValueError("INFERENCE_CAPACITY_WAIT_SECONDS cannot be negative.")
+        return value
+
+    @field_validator("MAX_CONCURRENT_INFERENCE_REQUESTS")
+    @classmethod
+    def validate_max_concurrency(cls, value: int) -> int:
+        if value < 1:
+            raise ValueError("MAX_CONCURRENT_INFERENCE_REQUESTS must be at least 1.")
+        return value
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

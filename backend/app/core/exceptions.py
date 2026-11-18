@@ -25,3 +25,13 @@ class ModelInferenceException(DescriptAIException):
 class InvalidInputException(DescriptAIException):
     """Raised when input attributes fail semantic validation."""
     pass
+
+
+class InferenceTimeoutException(DescriptAIException):
+    """Raised when one inference request exceeds its configured timeout."""
+    pass
+
+
+class ServiceOverloadedException(DescriptAIException):
+    """Raised when no inference capacity can be acquired promptly."""
+    pass

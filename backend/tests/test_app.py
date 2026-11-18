@@ -3,7 +3,12 @@
 from unittest.mock import MagicMock, patch
 from starlette.testclient import TestClient
 
-from backend.app.core.exceptions import ModelInferenceException, ModelNotReadyException
+from backend.app.core.exceptions import (
+    InferenceTimeoutException,
+    ModelInferenceException,
+    ModelNotReadyException,
+    ServiceOverloadedException,
+)
 from backend.app.main import create_app
 
 
@@ -46,6 +51,32 @@ def test_model_inference_exception_handler():
         data = response.json()
         assert data["error"] == "inference_error"
         assert "Generation timeout" in data["message"]
+
+
+def test_inference_timeout_exception_handler():
+        app = create_app()
+
+        @app.get("/test-inference-timeout")
+        async def trigger_timeout():
+            raise InferenceTimeoutException("Generation timed out.")
+
+        with TestClient(app, raise_server_exceptions=False) as client:
+            response = client.get("/test-inference-timeout")
+            assert response.status_code == 504
+            assert response.json()["error"] == "inference_timeout"
+
+
+def test_service_overload_exception_handler():
+        app = create_app()
+
+        @app.get("/test-overload")
+        async def trigger_overload():
+            raise ServiceOverloadedException("Service overloaded.")
+
+        with TestClient(app, raise_server_exceptions=False) as client:
+            response = client.get("/test-overload")
+            assert response.status_code == 503
+            assert response.json()["error"] == "service_overloaded"
 
 
 def test_lifespan_startup_failure():
