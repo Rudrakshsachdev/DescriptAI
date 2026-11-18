@@ -135,6 +135,19 @@ descra/
 .\.venv\Scripts\python.exe scripts/run_test_evaluation.py
 ```
 
+### Step 10: Final Review & Production Inference Handover
+```python
+# Standalone inference engine ready for Phase 2 FastAPI integration:
+from descra.inference.predictor import DescriptionPredictor
+
+predictor = DescriptionPredictor(checkpoint_path="checkpoints/sft/best_checkpoint")
+output = predictor.predict(
+    product_name="Organic Argan Oil Hair Treatment",
+    features=["Cold-pressed", "Deep conditioning", "100ml"],
+)
+print(output.generated_description)
+```
+
 ### Automated Pytest Suite
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests/ -v
