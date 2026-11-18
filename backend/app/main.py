@@ -11,6 +11,7 @@ if src_path not in sys.path:
     sys.path.insert(0, src_path)
 
 from fastapi import FastAPI, Request, status
+from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -203,7 +204,7 @@ def create_app() -> FastAPI:
             content={
                 "error": "validation_error",
                 "message": "The request contains invalid parameters.",
-                "details": exc.errors(),
+                "details": jsonable_encoder(exc.errors()),
             },
         )
 
