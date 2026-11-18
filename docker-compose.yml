@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      ENVIRONMENT: "${ENVIRONMENT:-production}"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+      HOST: "0.0.0.0"
+      PORT: "8000"
+      DEVICE: "${DEVICE:-cpu}"
+      USE_HALF_PRECISION: "${USE_HALF_PRECISION:-false}"
+      MODEL_CHECKPOINT_PATH: "/app/checkpoints/sft/best_checkpoint"
+      INFERENCE_TIMEOUT_SECONDS: "${INFERENCE_TIMEOUT_SECONDS:-30}"
+      INFERENCE_CAPACITY_WAIT_SECONDS: "${INFERENCE_CAPACITY_WAIT_SECONDS:-0.25}"
+      MAX_CONCURRENT_INFERENCE_REQUESTS: "${MAX_CONCURRENT_INFERENCE_REQUESTS:-1}"
+    volumes:
+      - ./checkpoints:/app/checkpoints:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
