@@ -23,12 +23,16 @@ data/processed/*
 !data/processed/.gitkeep
 
 # Model weights and checkpoints
-artifacts/models/*
+artifacts/models/**
 !artifacts/models/.gitkeep
-artifacts/checkpoints/*
+artifacts/checkpoints/**
 !artifacts/checkpoints/.gitkeep
-artifacts/experiments/*
+artifacts/experiments/**
 !artifacts/experiments/.gitkeep
+checkpoints/**
+!checkpoints/.gitkeep
+*.safetensors
+*.pt
 
 # OS & IDE
 .DS_Store

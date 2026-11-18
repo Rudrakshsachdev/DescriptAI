@@ -116,6 +116,18 @@ descra/
 .\.venv\Scripts\python.exe scripts/run_experiments.py --sample-size 100
 ```
 
+### Step 8: Supervised Fine-Tuning (SFT) & Comparative Evaluation
+```powershell
+# 1. Prepare SFT prompt-target pairs with zero data leakage
+.\.venv\Scripts\python.exe scripts/prepare_sft_dataset.py
+
+# 2. Train FLAN-T5-small Seq2Seq model with BF16 mixed precision
+.\.venv\Scripts\python.exe scripts/train.py --config configs/training.yaml
+
+# 3. Evaluate Fine-Tuned model vs. Baseline across Greedy, Beam-2, Beam-4
+.\.venv\Scripts\python.exe scripts/evaluate_finetuned.py --sample-size 100
+```
+
 ### Automated Pytest Suite
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests/ -v

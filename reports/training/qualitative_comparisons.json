@@ -1,0 +1,287 @@
+[
+  {
+    "product_id": "B07B2N36S5",
+    "product_name": "Jade Roller for face - 100% Real Natural Jade Stone roller, Anti-Aging jade Beauty Skincare Tool to Rejuvenate Facial Skin Cooling, Slimming & Firming by Kemzzone",
+    "reference_description": "Royal Jade Roller The Royal Jade Roller by kemzzone is ancient Chinese beauty tool for face and neck massage that's been used in China for thousands of years and sometimes called Jade Derma Roller. It was said that it was used in Chinese medicine to aid the body's lymphatic and filtration system to get rid of toxins. It's like taking your skin back in time, boosting circulation and eliminating puffiness, Relieving facial tension, reducing puffiness, eye bags and dark circles around eyes, giving you that natural healthy glow everyone is looking for Using the jade roller on the face, has the following effects: Enhances skin elasticity, tightening and toning the skin Helps with anti-aging and prevents fine lines and wrinkles from appearing on your face Reduces puffiness and dark circles around eyes Provides a soothing and relaxing effect on the skin relieving facial tension Helps penetrate beauty products like face creams and serums deeper into the skin Promotes blood circulation to the face for a natural healthy glow",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Kemzzone",
+        "finetuned_output": "JADE ROLLER MADE FROM 100% NATURAL JADE The Kemzzone jade roller stone are made from 100% natural jade. The jade stone feels naturally cool when it touches your skin, perfect for a revitalizing your face. It will help to reduce the puffiness around your eyes and relieve tension on the facial skin. You will feel great after massaging your face with these jade Rollers. VERSATILE DOUBLE ROLNER FOR CONVENIENCE This jade roll features dual-ended rollers with a smooth polished surface. Use the big roller for cheeks,"
+      },
+      "beam_search_2": {
+        "baseline_output": "Kemzzone",
+        "finetuned_output": "JADE ROLLER MADE FROM 100% NATURAL JADE - The Kemzzone jade roller stone are made from 100% natural jade. The jade stone feels naturally cool when it touches your skin, perfect for a revitalizing your face. It will help to reduce the puffiness around your eyes and relieve tension on the facial skin. You will feel great after massaging your face with these jade Rollers. VERSATILE DOUBLE ROLE FOR CONVENIENCE - This Jade roller features dual-ended rollers with a smooth polished surface. Use the big roller for"
+      },
+      "beam_search_4": {
+        "baseline_output": "Kemzzone",
+        "finetuned_output": "JADE ROLLER MADE FROM 100% NATURAL JADE - The Kemzzone jade roller stone are made from 100% natural jade. The jade stone feels naturally cool when it touches your skin, perfect for a revitalizing your face. It will help to reduce the puffiness around your eyes and relieve tension on the facial skin. You will feel great after massaging your face with these jade Rollers. VERSATILE DOUBLE ROLE FOR CONVENIENCE - This Jade roller features dual-ended rollers with a smooth polished surface. Use the big roller for"
+      }
+    }
+  },
+  {
+    "product_id": "B09N9VH2WW",
+    "product_name": "Popdigito Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool",
+    "reference_description": "Dog&Cat Pet Self-Cleaning Slicker Brush for Short and Long Hair, Grooming Dematting Tool Easily Removes Undercoat, Shedding Mats, Tangles Hair, Dander, Dirt, Loose Fur, Massages Particle, Improves Circulation Pet Supplies",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Popdigito Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool Features: - Strong function: This grooming brush can remove dead hair and dirt from pets\u2019 fur. It works out tangles and knots, keeping pets\u2019 coat smooth and shiny. This tool is suitable for small and medium size cats and dogs with different coat types. -",
+        "finetuned_output": "Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool"
+      },
+      "beam_search_2": {
+        "baseline_output": "Popdigito Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool Features: - Strong function: This grooming brush can remove dead hair and dirt from pets\u2019 fur. It works out tangles and knots, keeping pets\u2019 coat smooth and shiny. This tool is suitable for small and medium size cats and dogs with different coat types.",
+        "finetuned_output": "Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool"
+      },
+      "beam_search_4": {
+        "baseline_output": "Popdigito Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool Features: - Strong function: This grooming brush can remove dead hair and dirt from pets\u2019 fur. It works out tangles and knots, keeping pets\u2019 coat smooth and shiny. This tool is suitable for small and medium size cats and dogs with different coat types.",
+        "finetuned_output": "Pet Self-Cleaning Brush for Short or Long Hair, Remove Loose or Tangled Hair for Cat and Dog, Gently Comb Undercoat and Massage Skin, Grooming and Deshedding Tool"
+      }
+    }
+  },
+  {
+    "product_id": "B00JNRWMYI",
+    "product_name": "Samantha Brown 6-piece Travel Survival Kit - BURGUNDY",
+    "reference_description": "Samantha Brown 6-piece Travel Survival Kit Never fret about storing laundry and other important items when you travel. This smart kit features bags to keep you organized while on the go. What a great way to have a place for everything and everything in its place.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "The kit is made of a sturdy material and is designed to be used in a travel survival kit.",
+        "finetuned_output": "The 6-piece travel kit is a unique travel kit that is designed to help you travel and protect your clothes. It is reusable and easy to carry."
+      },
+      "beam_search_2": {
+        "baseline_output": "Samantha Brown 6-piece Travel Survival Kit - BURGUNDY Features: - Crossbody bag - Clear pouch - Double-sided laundry cube - Removable mesh bag",
+        "finetuned_output": "This 6-piece travel survival kit is a lightweight, double-sided laundry cube. It is reusable and easy to carry."
+      },
+      "beam_search_4": {
+        "baseline_output": "Samantha Brown 6-piece Travel Survival Kit - BURGUNDY Features: - Crossbody bag - Clear pouch - Double-sided laundry cube - Removable mesh bag",
+        "finetuned_output": "Crossbody bag Clear pouch Double-sided laundry cube Removable mesh bag Set of 2 laundry stow away bags"
+      }
+    }
+  },
+  {
+    "product_id": "B074XQP3B5",
+    "product_name": "Nivea Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz",
+    "reference_description": "Nivea Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Nivea Men Fresh Ocean Aluminium Free Deodorant Roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz",
+        "finetuned_output": "Nivea Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz"
+      },
+      "beam_search_2": {
+        "baseline_output": "Nivea Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz",
+        "finetuned_output": "Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz"
+      },
+      "beam_search_4": {
+        "baseline_output": "Nivea Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz",
+        "finetuned_output": "Nivea Men Fresh Ocean Aluminium Free deodorant roll-on for long lasting freshness with aqua fresh scent 50 ml / 1.7 fl oz"
+      }
+    }
+  },
+  {
+    "product_id": "B08W53WBGB",
+    "product_name": "Zhaocaimao 20PCS Sample Containers 5ml Plastic Small Bottle Test Tube Mini Bottles Storage Containers White",
+    "reference_description": "Compact size. Good sealing performance. Height: approx.42mm Convenient to use and carry. Capacity: 5ml Package included: 20pcs x sample containers Quantity: 20pcs Material: Polyethylene plastic (PE) Feature: Color: translucent Easily screws together for compact storage of small pills, powders, capsules and other solid. Internal diameter: approx.14mm",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "",
+        "finetuned_output": "Material: Polyethylene plastic (PE) Color: translucent Compact size. Good sealing performance. Easily screw together for compact storage of small pills, powders, capsules and other solid. Package included: 20pcs x sample containers"
+      },
+      "beam_search_2": {
+        "baseline_output": "The product is made of polyethylene plastic (PE).",
+        "finetuned_output": "Package included: 20pcs x sample containers"
+      },
+      "beam_search_4": {
+        "baseline_output": "Product Description: Zhaocaimao 20PCS Sample Containers 5ml Plastic Small Bottle Test Tube Mini Bottles Storage Containers White Features: - Material: Polyethylene plastic (PE) - Color: translucent - Compact size. Good sealing performance. - Easily screws together for compact storage of small pills, powders, capsules and other solid.",
+        "finetuned_output": "20PCS Sample Containers 5ml Plastic Small Bottle Test Tube Mini Bottles Storage Containers White"
+      }
+    }
+  },
+  {
+    "product_id": "B017QJYWZ6",
+    "product_name": "Aperio Natural Best Facial Mask Moisturize with Vitamin A, Calendula and Shea Butter, Stimulates Skin Cell Renewal, Anti-Wrinkle",
+    "reference_description": "Try this revolutionary best facial mask by aperies stop buying facial masks that promise extravagant results, but have zero effects on your skin aperies' facial moisturizer is the product you have been looking for so long and won't cost a fortune. Learn what you can achieve using this unparalleled facial mask: Your skin will become softer and fresh due to the special formula of natural ingredients that hydrates your skin effectively get rid of the wrinkles and the aging marks and start looking more vibrant today this best facial mask is a great facial moisturizer that will refresh and brighten dry skin with vitamin a, calendula.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Aperio Natural Best Facial Mask Moisturize with Vitamin A, Calendula and Shea Butter, Stimulates Skin Cell Renewal, Anti-Wrinkle Features: - Gold-quality ingredients-aperies uses only the best natural ingredients on the market that provide cosmetic products of unmatched quality - Rejuvenating facial moisturizer-our best facial mask effectively helps skin retain its natural moisture - Hydrates & stimulates skin cell renewal-the carefully created anti wrinkle facial mask helps to brighten and repair skin by drawing out the oil",
+        "finetuned_output": "Gold-quality ingredients-aperies uses only the best natural ingredients on the market that provide cosmetic products of unmatched quality. Rejuvenating facial moisturizer-our best facial mask effectively helps skin retain its natural moisture. Hydrates & stimulates skin cell renewal-the carefully created anti wrinkle facial mask helps to brighten and repair skin by drawing out the oil."
+      },
+      "beam_search_2": {
+        "baseline_output": "Aperio Natural Best Facial Mask Moisturize with Vitamin A, Calendula and Shea Butter, Stimulates Skin Cell Renewal, Anti-Wrinkle Features: - Gold-quality ingredients-aperies uses only the best natural ingredients on the market that provide cosmetic products of unmatched quality - Rejuvenating facial moisturizer-our best facial mask effectively helps skin retain its natural moisture - Hydrates & stimulates skin cell renewal-the carefully created anti wrinkle facial mask helps to brighten and repair skin by drawing out the oil",
+        "finetuned_output": "Gold-quality ingredients-aperies uses only the best natural ingredients on the market that provide cosmetic products of unmatched quality. Rejuvenating facial moisturizer-our best facial mask effectively helps skin retain its natural moisture. Hydrates & stimulates skin cell renewal-the carefully created anti wrinkle facial mask helps to brighten and repair skin by drawing out the oil."
+      },
+      "beam_search_4": {
+        "baseline_output": "Aperio Natural Best Facial Mask Moisturize with Vitamin A, Calendula and Shea Butter, Stimulates Skin Cell Renewal, Anti-Wrinkle Features: - Gold-quality ingredients-aperies uses only the best natural ingredients on the market that provide cosmetic products of unmatched quality - Rejuvenating facial moisturizer-our best facial mask effectively helps skin retain its natural moisture - Hydrates & stimulates skin cell renewal-the carefully created anti wrinkle facial mask helps to brighten and repair skin by drawing out the oil",
+        "finetuned_output": "Gold-quality ingredients-aperies uses only the best natural ingredients on the market that provide cosmetic products of unmatched quality. Rejuvenating facial moisturizer-our best facial mask effectively helps skin retain its natural moisture. Hydrates & stimulates skin cell renewal-the carefully created anti wrinkle facial mask helps to brighten and repair skin by drawing out the oil."
+      }
+    }
+  },
+  {
+    "product_id": "B07VHKCF13",
+    "product_name": "STAYVE Vegan Professional Repair Cream 1gm x 100 Box, Post Procedure, After Meso, Tattoo Aftercare, Lasers, Microneedling, Chemical Peels Bundled with 1 Pack of Herblandia Oil Absorbing Blotting Paper",
+    "reference_description": "You can apply this cream to your face and neck on a daily basis without any skin irritation.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Product Description: STAYVE Vegan Professional Repair Cream 1gm x 100 Box, Post Procedure, After Meso, Tattoo Aftercare, Lasers, Microneedling, Chemical Peels Bundled with 1 Pack of Herblandia Oil Absorbing Blotting Paper Features: - Stayve post treatment repair cream is Vegan, alcohol-free formula safe and beneficial for all types of skin. Our product helps to restore skin health and rejuvenate it with high content of lanolin and peptides providing soothing and calming effects for damaged skin. - Make sure you get your FREE Pack of",
+        "finetuned_output": "Stayve Post Treatment Repair Cream is Vegan, alcohol-free formula safe and beneficial for all types of skin. Our product helps to restore skin health and rejuvenate it with high content of lanolin and peptides providing soothing and calming effects for damaged skin. Make sure you get your FREE Pack of Herblandia blotting paper. Stayve Repair Cream has been upgraded and renewed, It has been improved in all aspects of design and ingredients, Acquired vegan certification from EVE Vegan France, French vegan certification is famous for thorough screening, A certificate that is certified when product is made only with ingredients that"
+      },
+      "beam_search_2": {
+        "baseline_output": "STAYVE Vegan Professional Repair Cream 1gm x 100 Box, Post Procedure, After Meso, Tattoo Aftercare, Lasers, Microneedling, Chemical Peels Bundled with 1 Pack of Herblandia Oil Absorbing Blotting Paper",
+        "finetuned_output": "Stayve Post Treatment Repair Cream is Vegan, alcohol-free formula safe and beneficial for all types of skin. Our product helps to restore skin health and rejuvenate it with high content of lanolin and peptides providing soothing and calming effects for damaged skin. Make sure you get your FREE Pack of Herblandia blotting paper. Stayve Repair Cream has been upgraded and renewed, It has been improved in all aspects of design and ingredients, Acquired vegan certification from EVE Vegan France, French vegan certification is famous for thorough screening, A certificate that is certified when product is made only with ingredients that"
+      },
+      "beam_search_4": {
+        "baseline_output": "Product Name: STAYVE Vegan Professional Repair Cream 1gm x 100 Box, Post Procedure, After Meso, Tattoo Aftercare, Lasers, Microneedling, Chemical Peels Bundled with 1 Pack of Herblandia Oil Absorbing Blotting Paper Features: - Stayve post treatment repair cream is Vegan, alcohol-free formula safe and beneficial for all types of skin. Our product helps to restore skin health and rejuvenate it with high content of lanolin and peptides providing soothing and calming effects for damaged skin. - Make sure you get your FREE Pack of",
+        "finetuned_output": "Stayve Post Treatment Repair Cream is Vegan, alcohol-free formula safe and beneficial for all types of skin. Our product helps to restore skin health and rejuvenate it with high content of lanolin and peptides providing soothing and calming effects for damaged skin. Make sure you get your FREE Pack of Herblandia blotting paper. Stayve Repair Cream has been upgraded and renewed, It has been improved in all aspects of design and ingredients, Acquired vegan certification from EVE Vegan France, French vegan certification is famous for thorough screening, A certificate that is certified when product is made only with ingredients that"
+      }
+    }
+  },
+  {
+    "product_id": "B075RFYVH9",
+    "product_name": "Citric Acid - 5 Pounds - 100% Pure Food Grade NON-GMO (5- Pound)",
+    "reference_description": "Intimate Bath & Body's citric acid is supplied in accordance with the current requirements of the Food Chemicals Codex (FCC) Easy & quick dissolving!",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Citric acid is a natural ingredient in bath bombs.",
+        "finetuned_output": "Basically, citric acid is an organic agent occurring naturally in the citric acids fruits like oranges, grape fruit and lemons. Skin Care Citric acid can be used for a lot of home masks and it is beneficial for the skin as it helps to remove dead cells and speed up the production of new ones. Bath Bombs Citric Acid can also make fun easy to make bath bombs. Pop it in your bath tub and the fizz will be delightful!"
+      },
+      "beam_search_2": {
+        "baseline_output": "Ingredients: Citric acid - 5 Pounds - 100% Pure Food Grade NON-GMO (5- Pound)",
+        "finetuned_output": "Basically, citric acid is an organic agent occurring naturally in the citric acids fruits like oranges, grape fruit and lemons. Skin Care Citric acid can be used for a lot of home masks and it is beneficial for the skin as it helps to remove dead cells and speed up the production of new ones. Bath Bombs Citric Acid can also make fun easy to make bath bombs. Pop it in your bath tub and the fizz will be delightful!"
+      },
+      "beam_search_4": {
+        "baseline_output": "Ingredients: Citric acid - 5 Pounds - 100% Pure Food Grade NON-GMO (5- Pound)",
+        "finetuned_output": "Citric acid is an organic agent occurring naturally in the citric acid fruits like oranges, grape fruit and lemons. It is beneficial for the skin as it helps to remove dead cells and speed up the production of new ones. It can also make fun easy to make bath bombs. Pop it in your bath tub and the fizz will be delightful!"
+      }
+    }
+  },
+  {
+    "product_id": "B012ADVYZO",
+    "product_name": "Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly - Best Wooden Detangler that Can be used with Blow Drying and Straightening",
+    "reference_description": "Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Product Name: Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly - Best Wooden Detangler that Can be used with Blow Drying and Straightening Features: - NATURAL AND FINE BRISTLES: Our large wooden paddle brush contains hundreds of boar bristles that will give your hair amazing benefits. The bristle spread oil evenly throughout your hair, lubricating each strand of hair, and repairing and adding shine and volume. - BEAUTIFUL B",
+        "finetuned_output": "Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly"
+      },
+      "beam_search_2": {
+        "baseline_output": "Product Name: Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly",
+        "finetuned_output": "Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly"
+      },
+      "beam_search_4": {
+        "baseline_output": "Product Name: Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly",
+        "finetuned_output": "Professional Detangling/Styling Paddle Boar Bristle Hair Brush with Hair Removing Tool by Bizarre.ly"
+      }
+    }
+  },
+  {
+    "product_id": "B00PB48T7G",
+    "product_name": "Bare Escentuals Face Care 0.28 Oz Bareminerals Original Spf 15 Foundation - # Warm Dark (W45) For Women",
+    "reference_description": "All the fragrances we carry are 100% genuine with a FULL Money Back Guarantee.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Bare Escentuals Face Care 0.28 Oz Bareminerals Original Spf 15 Foundation - # Warm Dark (W45) For Women Features: - Bare Electuals by Bare Elements - 100% Genuine, Money Back Guarantee - This Fragrance is for WOMEN - It is recommended for wear - Smells of Specifications: .",
+        "finetuned_output": "Bare Escentuals by Bare EXcentualSpf 15 Foundation - # Warm Dark (W45) For Women"
+      },
+      "beam_search_2": {
+        "baseline_output": "Bare Escentuals Face Care 0.28 Oz Bareminerals Original Spf 15 Foundation - # Warm Dark (W45) For Women - It is recommended for wear - Smells of Specifications:",
+        "finetuned_output": "Bare Escentuals Face Care 0.28 Oz Bareminerals Original Spf 15 Foundation - # Warm Dark (W45) For Women"
+      },
+      "beam_search_4": {
+        "baseline_output": "Product Name: Bare Escentuals Face Care 0.28 Oz Bareminerals Original Spf 15 Foundation - # Warm Dark (W45) For Women",
+        "finetuned_output": "Bare Escentuals Face Care 0.28 Oz Bareminerals Original Spf 15 Foundation - # Warm Dark (W45) For Women"
+      }
+    }
+  },
+  {
+    "product_id": "B01LL1AT3E",
+    "product_name": "Degree Men Body Heat Activated Deodorant, Cool Rush (2.7 oz, 5 pk.)",
+    "reference_description": "A unique body heat activated formula provides long lasting protection all day long. It instantly responds to changes in your body temperature to help you stay dry as you do more.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Contains: Sodium Hydroxide, Sodium Benzoate, Benzyl Alcohol, Glucose, and Sodium Chloride.",
+        "finetuned_output": "Degree Men Body Heat Activated Deodorant, Cool Rush (2.7 oz, 5 pk.)"
+      },
+      "beam_search_2": {
+        "baseline_output": "Degree Men Body Heat Activated Deodorant, Cool Rush (2.7 oz, 5 pk.)",
+        "finetuned_output": "Degree Men Body Heat Activated Deodorant, Cool Rush (2.7 oz, 5 pk.)"
+      },
+      "beam_search_4": {
+        "baseline_output": "Degree Men Body Heat Activated Deodorant, Cool Rush (2.7 oz, 5 pk.)",
+        "finetuned_output": "Degree Men Body Heat Activated Deodorant, Cool Rush (2.7 oz, 5 pk.)"
+      }
+    }
+  },
+  {
+    "product_id": "B00IHI0NSG",
+    "product_name": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing",
+    "reference_description": "The most complete professional quality kit from ZZZRT's value range of skin care products. All ZZZRT products are hand made by skilled craftsmen from finest materials. Ideal for use at home, spa's or salons. Combines multiple implements to address all kinds of blackheads & whiteheads.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing Features: - Made with high quality surgical grade stainless steel - Includes one main body rods and a variety of 8 implements that screw on to the main body - Attractive high quality carrying & storage case - Knurled main body for comfortable grip - Backed by ZZzzRT's 30 days money back satisfaction guarantee Specifications: ---",
+        "finetuned_output": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing"
+      },
+      "beam_search_2": {
+        "baseline_output": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing Features: - Made with high quality surgical grade stainless steel - Includes one main body rods and a variety of 8 implements that screw on to the main body - Attractive high quality carrying & storage case - Knurled main body for comfortable grip - Backed by ZZzzRT's 30 days money back satisfaction guarantee",
+        "finetuned_output": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing"
+      },
+      "beam_search_4": {
+        "baseline_output": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing Features: - Made with high quality surgical grade stainless steel - Includes one main body rods and a variety of 8 implements that screw on to the main body - Attractive high quality carrying & storage case - Knurled main body for comfortable grip - Backed by ZZzzRT's 30 days money back satisfaction guarantee",
+        "finetuned_output": "ZZZRT Professional Blackhead Remover/Cleaner & Comedone Extractor Skin Care Deluxe 8 Piece Kit + Free Beautiful packing"
+      }
+    }
+  },
+  {
+    "product_id": "B07Y43XPT4",
+    "product_name": "Becca Ultimate Coverage 24-Hour Foundation - Camel",
+    "reference_description": "This foundation instantly camouflages all your skin concerns. Shown to stay colour true all day. The breathable full coverage foundation instantly smoothens your skin.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "Becca Ultimate Coverage 24 Hour Foundation - Camel Features: - Full Coverage, 24 Hour Wear - Water & Transfer Resistant, Sweat & Humidity Resistants - Non-Acnegenic, Won\u2019t Clog Pores - Breathable - Colour True for 24 Hours",
+        "finetuned_output": "Becca Ultimate Coverage 24 Hour Foundation - Camel"
+      },
+      "beam_search_2": {
+        "baseline_output": "Becca Ultimate Coverage 24 Hour Foundation - Camel Features: - Full Coverage, 24 Hour Wear - Water & Transfer Resistant, Sweat & Humidity Resistants - Non-Acnegenic, Won\u2019t Clog Pores - Breathable - Colour True for 24 Hours",
+        "finetuned_output": "Becca Ultimate Coverage 24 Hour Foundation - Camel"
+      },
+      "beam_search_4": {
+        "baseline_output": "Becca Ultimate Coverage 24 Hour Foundation - Camel Features: - Full Coverage, 24 Hour Wear - Water & Transfer Resistant, Sweat & Humidity Resistants - Non-Acnegenic, Won\u2019t Clog Pores - Breathable - Colour True for 24 Hours",
+        "finetuned_output": "Full Coverage, 24 Hour Wear Water & Transfer Resistant, Sweat & Humidity Resistants Non-Acnegenic, Won\u2019t Clog Pores Breathable Colour True for 24 Hours"
+      }
+    }
+  },
+  {
+    "product_id": "B08XZNXPVV",
+    "product_name": "Soohu 64 Colors Nail Striping Tape Line and 2 Pieces Nail Tape Dispensers,Free Tape Roller Dispenser Striping Tape Line,for Nail Art Decoration DIY Nail Tip.",
+    "reference_description": "\u25cfA fun and simple nail decoration that will give you a unique look that will give you professional results without the need for a nail salon. \u25cfPattern will be sparkling and glamorous nail Studio Nails in just a few seconds with our Nail Art Stickers on fake nails,natural or acrylic nails. Use the lines to make stripe patterns after the bottom nail \u25cfpolish dry completely, and apply the top nail polish after, you will get a long lasting fashion manicure. \u25cfQuantity :64 Pieces Nail Striping Tape Line \u25cf2 Pieces Nail Tape Dispensers \u25cfColor : golden, green, blue, red, purple, rose, white color and so on, etc \u25cf How to use \u25cfSelect a nail art tape and place it into the tape dispenser. \u25cfApply nail polish to your nails and let dry. \u25cfRoll out the tape across your nail, lightly pressing as you go and cut the tape. Place the nail art sticker in nail , tip and rub it gently several times. \u25cfApply a clear top coat to ensure that your design is sealed. \u25cf Tip: Apply a top coat nail oil can prevent the nail art tape from peeling at the edges.",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "",
+        "finetuned_output": "What You Receive  You will receive 64 pieces nail striping tape line in 30 assorted colors, and 2 pieces nail Striping tape dispensers, striping line includes silver, golden, green, blue, red, purple, rose, white color and so on, enough quantity and assorted colours for you to decorate your nail.  Self-Adhesive Design  Good adhesion, no glue is needed, no fading! Can be used with UV Gel / acrylic nails / nail polish / etc. Ideal for fine nail art work to draw lines, fine details, flowers"
+      },
+      "beam_search_2": {
+        "baseline_output": "Soohu 64 Colors Nail Striping Tape Line & 2 Pieces & Nail Tape Dispensers,Free Tape Roller Dispenser Striping Tip,for Nail Art Decoration DIY Nail Tip. Features: -  Self-Adhesive Design  Good adhesion, no glue is needed, no fading! Can be used with UV Gel / acrylic nails / nail polish / etc. Ideal for fine nail art work to draw lines, fine details, flowers, special patterns,highlight etc,can meet professional or home use",
+        "finetuned_output": "What You Receive  You will receive 64 pieces nail striping tape line in 30 assorted colors, and 2 pieces nail Striping tape dispensers, striping line includes silver, golden, green, blue, red, purple, rose, white color and so on, enough quantity and assorted colours for you to decorate your nail.  Self-Adhesive Design  Good adhesion, no glue is needed, no fading! Can be used with UV Gel / acrylic nails / nail polish / etc. Ideal for fine nail art work to draw lines, fine details, flowers"
+      },
+      "beam_search_4": {
+        "baseline_output": "The Soohu 64 Colors Nail Striping Tape Line and 2 Pieces of Nail Tape Dispensers,Free Tape Roller Dispenser,for Nail Art Decoration DIY Nail Tip. Features: -  Self-Adhesive Design  Good adhesion, no glue is needed, no fading! Can be used with UV Gel / acrylic nails / nail polish / etc. Ideal for fine nail art work to draw lines, fine details, flowers, special patterns,highlight etc.",
+        "finetuned_output": "What You Receive  You will receive 64 pieces nail striping tape line in 30 assorted colors, and 2 pieces nail Striping tape dispensers, striping line includes silver, golden, green, blue, red, purple, rose, white color and so on, enough quantity and assorted colours for you to decorate your nail.  Self-Adhesive Design  Good adhesion, no glue is needed, no fading! Can be used with UV Gel / acrylic nails / nail polish / etc. Ideal for fine nail art work to draw lines, fine details, flowers"
+      }
+    }
+  },
+  {
+    "product_id": "B00VU7YSVY",
+    "product_name": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin",
+    "reference_description": "Alluricare's Botanical Body Butter works to improve the condition of your skin with all-natural ingredients! With daily use you'll get all-day moisture for deeply nourished, healthy skin. Moisturize even the driest skin with visible improvement over time. Effective even on oily skin. Reduces scars and marks, dry, and itchy skin. Provides gentle but effective cleansing and moisture - Rich in minerals and trace elements extracted from the Great Salt Lake - Made with only the highest quality ingredients, our product comes with a 100% LIFETIME SATISFACTION GUARANTEE, so you can scroll to the top and Add to Cart with confidence!",
+    "comparisons": {
+      "greedy": {
+        "baseline_output": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin Features: - CLEANSE AND REFRESH YOUR SKIN! See great results with our long-lasting Botanic Body Butter! Gently cleanses and moisturizes to keep your skin nourished and healthy! Contains Aloe Vera, Coconut Oil and Green Tea Extract to fight bacteria, build new tissue and minimize damage caused by free radicals! Strengthens skin tissue more deeply and exfoliates dead skin cells! -",
+        "finetuned_output": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin"
+      },
+      "beam_search_2": {
+        "baseline_output": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin",
+        "finetuned_output": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin"
+      },
+      "beam_search_4": {
+        "baseline_output": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin",
+        "finetuned_output": "MANDOYVAlluricare Natural Botanical Body Butter - Organic Ingredients and Antioxidants Moisturize and Nourish Skin"
+      }
+    }
+  }
+]

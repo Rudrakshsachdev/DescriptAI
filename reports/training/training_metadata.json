@@ -1,0 +1,108 @@
+{
+  "experiment": "Step 8 Supervised Fine-Tuning (SFT)",
+  "timestamp": "2026-11-18T06:24:23.151689+00:00",
+  "best_checkpoint": {
+    "best_epoch": 4,
+    "best_eval_loss": 2.1778,
+    "metric_used": "eval_loss"
+  },
+  "training_summary": {
+    "total_epochs_trained": 4,
+    "total_train_time_sec": 737.91,
+    "initial_train_loss": 4.9467,
+    "final_train_loss": 4.2045,
+    "initial_eval_loss": 2.2462,
+    "final_eval_loss": 2.1778
+  },
+  "configuration": {
+    "model_name": "google/flan-t5-small",
+    "model_revision": "main",
+    "tokenizer_name": "google/flan-t5-small",
+    "train_path": "data/processed/sft_train.jsonl",
+    "validation_path": "data/processed/sft_validation.jsonl",
+    "test_path": "data/processed/test.jsonl",
+    "max_input_length": 512,
+    "max_target_length": 160,
+    "output_dir": "checkpoints/sft",
+    "reports_dir": "reports/training",
+    "figures_dir": "reports/training/figures",
+    "num_train_epochs": 4,
+    "per_device_train_batch_size": 8,
+    "per_device_eval_batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "lr_scheduler_type": "linear",
+    "max_grad_norm": 1.0,
+    "fp16": false,
+    "bf16": true,
+    "seed": 42,
+    "early_stopping_patience": 2,
+    "metric_for_best_model": "eval_loss",
+    "save_total_limit": 2,
+    "logging_steps": 50,
+    "dataloader_num_workers": 0,
+    "eval_sample_size": 100,
+    "eval_strategies": [
+      "greedy",
+      "beam_search_2",
+      "beam_search_4"
+    ]
+  },
+  "hardware": {
+    "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "total_vram_mb": 6140.5,
+    "peak_training_vram_mb": 4016.4
+  },
+  "epoch_records": [
+    {
+      "epoch": 1,
+      "global_step": 240,
+      "train_loss": 4.9467,
+      "eval_loss": 2.2462,
+      "loss_gap": -2.7004,
+      "learning_rate": 0.00024948,
+      "train_duration_sec": 164.45,
+      "eval_duration_sec": 8.96,
+      "peak_gpu_memory_mb": 4019.03,
+      "timestamp": "2026-11-18T06:14:53.172874+00:00"
+    },
+    {
+      "epoch": 2,
+      "global_step": 480,
+      "train_loss": 4.5313,
+      "eval_loss": 2.1934,
+      "loss_gap": -2.3378,
+      "learning_rate": 0.00016585,
+      "train_duration_sec": 178.22,
+      "eval_duration_sec": 4.34,
+      "peak_gpu_memory_mb": 4019.11,
+      "timestamp": "2026-11-18T06:18:44.994047+00:00"
+    },
+    {
+      "epoch": 3,
+      "global_step": 720,
+      "train_loss": 4.3181,
+      "eval_loss": 2.1821,
+      "loss_gap": -2.1361,
+      "learning_rate": 8.223e-05,
+      "train_duration_sec": 115.57,
+      "eval_duration_sec": 10.13,
+      "peak_gpu_memory_mb": 4012.21,
+      "timestamp": "2026-11-18T06:20:54.313149+00:00"
+    },
+    {
+      "epoch": 4,
+      "global_step": 960,
+      "train_loss": 4.2045,
+      "eval_loss": 2.1778,
+      "loss_gap": -2.0267,
+      "learning_rate": 0.0,
+      "train_duration_sec": 166.22,
+      "eval_duration_sec": 8.8,
+      "peak_gpu_memory_mb": 4016.4,
+      "timestamp": "2026-11-18T06:24:14.025777+00:00"
+    }
+  ]
+}

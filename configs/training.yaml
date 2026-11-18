@@ -1,28 +1,46 @@
-# Descra Training Configuration
-output_dir: "artifacts/checkpoints"
-logging_dir: "artifacts/experiments/logs"
+# Descra Supervised Fine-Tuning (SFT) Configuration
+# Model: google/flan-t5-small (60M / 77M parameter Seq2Seq Transformer)
+# Target Hardware: NVIDIA GeForce RTX 4050 Laptop GPU (6 GB VRAM)
 
-num_train_epochs: 3
-per_device_train_batch_size: 8
-per_device_eval_batch_size: 16
-gradient_accumulation_steps: 2
+model:
+  name: "google/flan-t5-small"
+  model_revision: "main"
+  tokenizer_name: "google/flan-t5-small"
 
-learning_rate: 3.0e-4
-weight_decay: 0.01
-warmup_ratio: 0.10
-lr_scheduler_type: "linear"
+dataset:
+  train_path: "data/processed/sft_train.jsonl"
+  validation_path: "data/processed/sft_validation.jsonl"
+  test_path: "data/processed/test.jsonl"
+  max_input_length: 512
+  max_target_length: 160
 
-fp16: true
-bf16: false
+training:
+  output_dir: "checkpoints/sft"
+  reports_dir: "reports/training"
+  figures_dir: "reports/training/figures"
+  num_train_epochs: 4
+  per_device_train_batch_size: 8
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 2
+  effective_batch_size: 16
+  learning_rate: 3.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.10
+  lr_scheduler_type: "linear"
+  max_grad_norm: 1.0
+  fp16: false
+  bf16: true
+  seed: 42
+  early_stopping_patience: 2
+  metric_for_best_model: "eval_loss"
+  save_total_limit: 2
+  logging_steps: 50
+  eval_steps: 100
+  dataloader_num_workers: 0
 
-evaluation_strategy: "epoch"
-save_strategy: "epoch"
-save_total_limit: 2
-load_best_model_at_end: true
-metric_for_best_model: "eval_loss"
-greater_is_better: false
-
-gradient_clipping: 1.0
-seed: 42
-dataloader_num_workers: 0
-
+evaluation:
+  sample_size: 100
+  strategies:
+    - "greedy"
+    - "beam_search_2"
+    - "beam_search_4"
