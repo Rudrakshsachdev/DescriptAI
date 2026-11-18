@@ -153,4 +153,35 @@ print(output.generated_description)
 .\.venv\Scripts\python.exe -m pytest tests/ -v
 ```
 
+## Phase 2 Backend: Reliability and Deployment
+
+Start the FastAPI backend locally:
+
+```powershell
+python -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+```
+
+Key API endpoints:
+
+- `POST /api/v1/generate`
+- `GET /api/v1/model/info`
+- `GET /health`
+- `GET /health/ready`
+
+The backend uses one process-local inference slot by default. Configure
+`INFERENCE_TIMEOUT_SECONDS`, `INFERENCE_CAPACITY_WAIT_SECONDS`, and
+`MAX_CONCURRENT_INFERENCE_REQUESTS` through environment variables.
+
+Run the containerized backend after mounting a checkpoint:
+
+```powershell
+docker compose up --build
+```
+
+Mount the fine-tuned checkpoint at `checkpoints/sft/best_checkpoint`. Docker Compose
+mounts this directory read-only and defaults to CPU execution. Full deployment details
+are in `reports/backend/STEP3_DEPLOYMENT_READINESS_REPORT.md`; benchmark instructions
+and actual environment limitations are in
+`reports/backend/STEP3_PERFORMANCE_BENCHMARK.md`.
+
 
