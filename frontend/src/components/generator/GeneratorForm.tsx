@@ -20,30 +20,26 @@ import {
   Info,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { TemplateSelector } from "@/components/generator/TemplateSelector";
+import { PRODUCT_TEMPLATES, type ProductTemplate } from "@/lib/constants/templates";
 
-const SAMPLE_DATA = {
-  product_name: "LumaArc Desk Lamp",
-  category: "Home & lighting",
-  brand: "Northline Studio",
-  features: `Adjustable warm-to-cool light
-Touch-sensitive dimmer
-USB-C charging port`,
-  specifications: `Materials: brushed aluminum and recycled ABS
-Dimensions: 42 × 16 cm
-Power: 12 W LED, USB-C`,
-  audience: "Design-conscious professionals setting up a home workspace",
-};
+const DEFAULT_TEMPLATE = PRODUCT_TEMPLATES.find((t) => t.id === "desk-lamp") || PRODUCT_TEMPLATES[0];
 
 export function GeneratorForm() {
-  const [productName, setProductName] = React.useState(SAMPLE_DATA.product_name);
-  const [category, setCategory] = React.useState(SAMPLE_DATA.category);
-  const [brand, setBrand] = React.useState(SAMPLE_DATA.brand);
-  const [featuresText, setFeaturesText] = React.useState(SAMPLE_DATA.features);
-  const [specsText, setSpecsText] = React.useState(SAMPLE_DATA.specifications);
-  const [audience, setAudience] = React.useState(SAMPLE_DATA.audience);
+  const [selectedTemplateId, setSelectedTemplateId] = React.useState<string | null>(DEFAULT_TEMPLATE.id);
+  const [productName, setProductName] = React.useState(DEFAULT_TEMPLATE.name);
+  const [category, setCategory] = React.useState(DEFAULT_TEMPLATE.category);
+  const [brand, setBrand] = React.useState(DEFAULT_TEMPLATE.brand);
+  const [featuresText, setFeaturesText] = React.useState(DEFAULT_TEMPLATE.features);
+  const [specsText, setSpecsText] = React.useState(DEFAULT_TEMPLATE.specifications);
+  const [audience, setAudience] = React.useState(DEFAULT_TEMPLATE.audience);
 
-  const [tone, setTone] = React.useState<"Refined" | "Friendly" | "Confident" | "Playful">("Refined");
-  const [length, setLength] = React.useState<"Short" | "Standard" | "Detailed">("Standard");
+  const [tone, setTone] = React.useState<"Refined" | "Friendly" | "Confident" | "Playful">(
+    DEFAULT_TEMPLATE.defaultTone || "Refined"
+  );
+  const [length, setLength] = React.useState<"Short" | "Standard" | "Detailed">(
+    DEFAULT_TEMPLATE.defaultLength || "Standard"
+  );
 
   const [formError, setFormError] = React.useState<string | null>(null);
   const [apiError, setApiError] = React.useState<string | null>(null);
@@ -63,20 +59,26 @@ export function GeneratorForm() {
     check();
   }, []);
 
-  const handleLoadSample = () => {
-    setProductName(SAMPLE_DATA.product_name);
-    setCategory(SAMPLE_DATA.category);
-    setBrand(SAMPLE_DATA.brand);
-    setFeaturesText(SAMPLE_DATA.features);
-    setSpecsText(SAMPLE_DATA.specifications);
-    setAudience(SAMPLE_DATA.audience);
-    setTone("Refined");
-    setLength("Standard");
+  const handleSelectTemplate = (tpl: ProductTemplate) => {
+    setSelectedTemplateId(tpl.id);
+    setProductName(tpl.name);
+    setCategory(tpl.category);
+    setBrand(tpl.brand);
+    setFeaturesText(tpl.features);
+    setSpecsText(tpl.specifications);
+    setAudience(tpl.audience);
+    if (tpl.defaultTone) setTone(tpl.defaultTone);
+    if (tpl.defaultLength) setLength(tpl.defaultLength);
     setFormError(null);
     setApiError(null);
   };
 
+  const handleLoadSample = () => {
+    handleSelectTemplate(DEFAULT_TEMPLATE);
+  };
+
   const handleClear = () => {
+    setSelectedTemplateId(null);
     setProductName("");
     setCategory("Home & lighting");
     setBrand("");
@@ -99,6 +101,24 @@ export function GeneratorForm() {
     }
     if (cleanName.length < 2) {
       setFormError("Product name must be at least 2 characters.");
+      return;
+    }
+    if (cleanName.length > 200) {
+      setFormError("Product name must not exceed 200 characters.");
+      return;
+    }
+
+    const cleanAudience = audience.trim();
+    if (cleanAudience.length > 100) {
+      setFormError(
+        `Target audience must not exceed 100 characters (currently ${cleanAudience.length} characters).`
+      );
+      return;
+    }
+
+    const cleanBrand = brand.trim();
+    if (cleanBrand.length > 100) {
+      setFormError("Brand must not exceed 100 characters.");
       return;
     }
 
@@ -135,10 +155,10 @@ export function GeneratorForm() {
     const payload: ProductDescriptionRequest = {
       product_name: cleanName,
       category: category.trim() || undefined,
-      brand: brand.trim() || undefined,
+      brand: cleanBrand || undefined,
       features: featuresList.length > 0 ? featuresList : undefined,
       specifications: Object.keys(specsRecord).length > 0 ? specsRecord : undefined,
-      audience: audience.trim() ? `${audience.trim()} (${tone} tone)` : `${tone} tone`,
+      audience: cleanAudience || undefined,
       generation_config: {
         num_beams: 2,
         max_new_tokens: tokenLimits.max,
@@ -281,6 +301,17 @@ export function GeneratorForm() {
               </button>
             </div>
 
+            {/* Pre-Configured Input Templates */}
+            <div className="pb-4 border-b border-slate-100">
+              <TemplateSelector
+                templates={PRODUCT_TEMPLATES}
+                selectedTemplateId={selectedTemplateId}
+                onSelectTemplate={handleSelectTemplate}
+                onClear={handleClear}
+                disabled={isLoading}
+              />
+            </div>
+
             {/* Error Banner */}
             {apiError && (
               <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-800 flex items-start gap-2.5">
@@ -389,16 +420,35 @@ export function GeneratorForm() {
 
             {/* Target Audience */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-800">
-                Target audience
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="block text-xs font-semibold text-slate-800">
+                  Target audience
+                </label>
+                <span
+                  className={`text-[10px] ${
+                    audience.length > 100
+                      ? "text-rose-600 font-semibold"
+                      : "text-slate-400"
+                  }`}
+                >
+                  {audience.length}/100
+                </span>
+              </div>
               <input
                 type="text"
                 disabled={isLoading}
+                maxLength={100}
                 value={audience}
-                onChange={(e) => setAudience(e.target.value)}
+                onChange={(e) => {
+                  setAudience(e.target.value);
+                  if (formError) setFormError(null);
+                }}
                 placeholder="e.g., Design-conscious professionals setting up a home workspace"
-                className="w-full px-3 py-2 text-xs sm:text-sm text-slate-900 bg-white border border-slate-200 rounded-lg shadow-2xs placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066e6]/20 focus:border-[#0066e6] transition-all"
+                className={`w-full px-3 py-2 text-xs sm:text-sm text-slate-900 bg-white border rounded-lg shadow-2xs placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all ${
+                  audience.length > 100
+                    ? "border-rose-400 focus:ring-rose-200"
+                    : "border-slate-200 focus:ring-[#0066e6]/20 focus:border-[#0066e6]"
+                }`}
               />
             </div>
 

@@ -200,7 +200,7 @@ def create_app() -> FastAPI:
     ) -> JSONResponse:
         logger.warning("Request validation failed: %s", exc.errors())
         return JSONResponse(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             content={
                 "error": "validation_error",
                 "message": "The request contains invalid parameters.",

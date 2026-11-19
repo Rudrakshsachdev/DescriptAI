@@ -197,7 +197,7 @@ class HeldOutTestRunner:
 
             tok = AutoTokenizer.from_pretrained(model_path_str, local_files_only=True)
             if self.use_bf16 and self.device.type == "cuda" and torch.cuda.is_bf16_supported():
-                model = AutoModelForSeq2SeqLM.from_pretrained(model_path_str, local_files_only=True, torch_dtype=torch.bfloat16).to(self.device)
+                model = AutoModelForSeq2SeqLM.from_pretrained(model_path_str, local_files_only=True, dtype=torch.bfloat16).to(self.device)
             elif self.device.type == "cuda":
                 model = AutoModelForSeq2SeqLM.from_pretrained(model_path_str, local_files_only=True).half().to(self.device)
             else:

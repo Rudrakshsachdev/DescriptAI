@@ -209,4 +209,45 @@ describe("GeneratorForm Component", () => {
       expect(services.generateDescription).toHaveBeenCalledTimes(2);
     });
   });
+
+  it("renders all 6 pre-configured product templates and allows switching between them", async () => {
+    render(<GeneratorForm />);
+
+    expect(screen.getByText("Pre-configured product templates")).toBeInTheDocument();
+
+    // Verify all template buttons are accessible
+    expect(screen.getByRole("button", { name: /load apexpro gps smartwatch template/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /load hydraglow botanical renewal serum template/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /load sonicwave anc wireless headphones template/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /load vanguard full-grain leather commuter backpack template/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /load baristacraft precision espresso machine template/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /load lumaarc desk lamp template/i })).toBeInTheDocument();
+
+    const nameInput = screen.getByPlaceholderText(
+      /e\.g\., LumaArc Desk Lamp/i
+    ) as HTMLInputElement;
+
+    // Click Smartwatch template
+    const smartwatchBtn = screen.getByRole("button", { name: /load apexpro gps smartwatch template/i });
+    fireEvent.click(smartwatchBtn);
+
+    expect(nameInput.value).toBe("ApexPro GPS Smartwatch");
+    expect(screen.getByDisplayValue("Veloce Active")).toBeInTheDocument();
+    expect(smartwatchBtn).toHaveAttribute("aria-pressed", "true");
+
+    // Click Skincare Serum template
+    const serumBtn = screen.getByRole("button", { name: /load hydraglow botanical renewal serum template/i });
+    fireEvent.click(serumBtn);
+
+    expect(nameInput.value).toBe("HydraGlow Botanical Renewal Serum");
+    expect(screen.getByDisplayValue("Aura Botanicals")).toBeInTheDocument();
+    expect(serumBtn).toHaveAttribute("aria-pressed", "true");
+    expect(smartwatchBtn).toHaveAttribute("aria-pressed", "false");
+
+    // Click Blank form button
+    const blankBtn = screen.getByTitle("Start with a blank form");
+    fireEvent.click(blankBtn);
+
+    expect(nameInput.value).toBe("");
+  });
 });

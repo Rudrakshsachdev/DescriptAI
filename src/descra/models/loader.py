@@ -74,7 +74,7 @@ def load_model_and_tokenizer(
         model = AutoModelForSeq2SeqLM.from_pretrained(
             model_name,
             config=config,
-            torch_dtype=dtype,
+            dtype=dtype,
             local_files_only=local_files_only,
         )
         model.to(target_device)

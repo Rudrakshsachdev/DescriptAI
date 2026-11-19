@@ -80,7 +80,7 @@ class DescriptionPredictor:
         model_source = str(self.checkpoint_path) if self.checkpoint_path.exists() else "google/flan-t5-small"
         self.model = AutoModelForSeq2SeqLM.from_pretrained(
             model_source,
-            torch_dtype=model_dtype,
+            dtype=model_dtype,
             local_files_only=self.checkpoint_path.exists(),
         ).to(self.device)
         self.model.eval()
