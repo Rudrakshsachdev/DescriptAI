@@ -70,10 +70,10 @@ export function GeneratorForm() {
     setConfig({ ...DEFAULT_CONFIG });
     setFormError(null);
     setApiError(null);
+    setOutputData(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const performGeneration = async () => {
     setFormError(null);
     setApiError(null);
 
@@ -129,6 +129,11 @@ export function GeneratorForm() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await performGeneration();
   };
 
   return (
@@ -217,7 +222,8 @@ export function GeneratorForm() {
             disabled={isLoading}
             value={audience}
             onChange={(e) => setAudience(e.target.value)}
-            placeholder="e.g., Sensitive skin daily routine, athletes, professionals"
+            placeholder="e.g., Sensitive skin, Salon professionals, Eco-conscious consumers"
+            helperText="Shapes vocabulary and tone toward specific consumer preferences."
           />
 
           {/* Structured Features Tag Input */}
@@ -266,6 +272,7 @@ export function GeneratorForm() {
           data={outputData}
           isLoading={isLoading}
           onLoadExample={handleLoadExample}
+          onRegenerate={performGeneration}
         />
       </div>
     </div>

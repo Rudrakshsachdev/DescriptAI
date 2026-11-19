@@ -103,7 +103,7 @@ describe("GeneratorForm Component", () => {
         screen.getByText(/Transform your skincare routine with this potent/i)
       ).toBeInTheDocument();
       expect(screen.getByText(/215 ms/i)).toBeInTheDocument();
-      expect(screen.getByText(/32 generated/i)).toBeInTheDocument();
+      expect(screen.getByText(/32 tokens/i)).toBeInTheDocument();
     });
   });
 
@@ -167,5 +167,58 @@ describe("GeneratorForm Component", () => {
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
       "Copyable description text."
     );
+  });
+
+  it("clears form inputs when clicking reset button", async () => {
+    render(<GeneratorForm />);
+
+    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
+    fireEvent.click(sampleBtn);
+
+    const nameInput = screen.getByPlaceholderText(
+      /e\.g\., Organic Hydrating Face Cream/i
+    ) as HTMLInputElement;
+    expect(nameInput.value).not.toBe("");
+
+    const clearBtn = screen.getByTitle("Clear all fields");
+    fireEvent.click(clearBtn);
+
+    expect(nameInput.value).toBe("");
+  });
+
+  it("triggers regeneration when clicking Regenerate button in output panel", async () => {
+    const mockOutput: ProductDescriptionResponse = {
+      success: true,
+      data: {
+        generated_description: "Initial description.",
+        model: "google/flan-t5-small",
+        generation_strategy: "beam_search",
+        latency_ms: 150,
+        output_tokens: 10,
+      },
+    };
+
+    vi.mocked(services.generateDescription).mockResolvedValue(mockOutput);
+
+    render(<GeneratorForm />);
+
+    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
+    fireEvent.click(sampleBtn);
+
+    const submitBtn = screen.getByRole("button", {
+      name: /generate description/i,
+    });
+    fireEvent.click(submitBtn);
+
+    await waitFor(() => {
+      expect(screen.getByText("Initial description.")).toBeInTheDocument();
+    });
+
+    const regenBtn = screen.getByRole("button", { name: /regenerate/i });
+    fireEvent.click(regenBtn);
+
+    await waitFor(() => {
+      expect(services.generateDescription).toHaveBeenCalledTimes(2);
+    });
   });
 });

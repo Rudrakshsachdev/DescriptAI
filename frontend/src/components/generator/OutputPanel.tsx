@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Copy, Check, Sparkles, Clock, Hash, Cpu, Terminal, ArrowRight } from "lucide-react";
+import { Copy, Check, Sparkles, Clock, Hash, Cpu, Terminal, ArrowRight, RefreshCw, FileText } from "lucide-react";
 import { GenerationData } from "@/lib/types/api";
 import { formatLatency } from "@/lib/utils";
 import { Badge } from "@/components/ui/Badge";
@@ -11,11 +11,17 @@ interface OutputPanelProps {
   data: GenerationData | null;
   isLoading: boolean;
   onLoadExample?: () => void;
+  onRegenerate?: () => void;
 }
 
-export function OutputPanel({ data, isLoading, onLoadExample }: OutputPanelProps) {
+export function OutputPanel({ data, isLoading, onLoadExample, onRegenerate }: OutputPanelProps) {
   const [copied, setCopied] = React.useState(false);
   const [showPrompt, setShowPrompt] = React.useState(false);
+
+  const wordCount = React.useMemo(() => {
+    if (!data?.generated_description) return 0;
+    return data.generated_description.trim().split(/\s+/).filter(Boolean).length;
+  }, [data?.generated_description]);
 
   const handleCopy = async () => {
     if (!data?.generated_description) return;
@@ -108,23 +114,38 @@ export function OutputPanel({ data, isLoading, onLoadExample }: OutputPanelProps
           </Badge>
         </div>
 
-        <button
-          type="button"
-          onClick={handleCopy}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 active:bg-slate-100 shadow-2xs transition-all focus:outline-none focus:ring-2 focus:ring-brand-500"
-        >
-          {copied ? (
-            <>
-              <Check className="w-3.5 h-3.5 text-emerald-600" />
-              <span className="text-emerald-700">Copied!</span>
-            </>
-          ) : (
-            <>
-              <Copy className="w-3.5 h-3.5 text-slate-500" />
-              <span>Copy Description</span>
-            </>
+        <div className="flex items-center gap-2">
+          {onRegenerate && (
+            <button
+              type="button"
+              onClick={onRegenerate}
+              disabled={isLoading}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-md border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 active:bg-slate-100 shadow-2xs transition-all disabled:opacity-40"
+              title="Rerun generation with current settings"
+            >
+              <RefreshCw className="w-3.5 h-3.5 text-slate-500" />
+              <span>Regenerate</span>
+            </button>
           )}
-        </button>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 active:bg-slate-100 shadow-2xs transition-all focus:outline-none focus:ring-2 focus:ring-brand-500"
+          >
+            {copied ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-emerald-700">Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-3.5 h-3.5 text-slate-500" />
+                <span>Copy Description</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Main text output */}
@@ -146,9 +167,9 @@ export function OutputPanel({ data, isLoading, onLoadExample }: OutputPanelProps
 
             <div className="flex items-center gap-1.5">
               <Hash className="w-3.5 h-3.5 text-slate-400" />
-              <span>Tokens:</span>
+              <span>Output:</span>
               <span className="font-semibold text-slate-800">
-                {data.output_tokens} generated
+                {wordCount} words ({data.output_tokens} tokens)
               </span>
             </div>
 

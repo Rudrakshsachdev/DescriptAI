@@ -9,7 +9,6 @@ import {
   LayoutDashboard,
   PenTool,
   Cpu,
-  History,
   X,
   Bot,
 } from "lucide-react";
@@ -96,7 +95,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <div className="px-3 mb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">
               Workspace
             </div>
-            <nav className="space-y-1">
+            <nav className="space-y-1" aria-label="Main navigation">
               {navigation.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -110,6 +109,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                         ? "bg-brand-50 text-brand-700 font-semibold"
                         : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                     )}
+                    aria-current={item.active ? "page" : undefined}
                   >
                     <Icon
                       className={cn(
@@ -118,32 +118,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                           ? "text-brand-600"
                           : "text-slate-400 group-hover:text-slate-600"
                       )}
+                      aria-hidden="true"
                     />
                     <span>{item.name}</span>
                   </Link>
                 );
               })}
             </nav>
-          </div>
-
-          <div>
-            <div className="px-3 mb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              Persistence
-            </div>
-            <div className="space-y-1">
-              <div
-                className="flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-400 bg-slate-50/50 cursor-not-allowed select-none"
-                title="Generation history requires Phase 3 Step 2 database persistence."
-              >
-                <div className="flex items-center gap-3">
-                  <History className="w-4 h-4 text-slate-300" />
-                  <span>History & Logs</span>
-                </div>
-                <span className="text-[10px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">
-                  Step 2
-                </span>
-              </div>
-            </div>
           </div>
         </div>
 
