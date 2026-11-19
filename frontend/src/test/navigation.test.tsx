@@ -18,10 +18,10 @@ describe("Sidebar Navigation", () => {
 
     expect(screen.getByRole("link", { name: /overview/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /generate description/i })
+      screen.getByRole("link", { name: /generator/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /model information/i })
+      screen.getByRole("link", { name: /model diagnostics/i })
     ).toBeInTheDocument();
   });
 
@@ -32,7 +32,7 @@ describe("Sidebar Navigation", () => {
     render(<Sidebar isOpen={true} onClose={onClose} />);
 
     const generateLink = screen.getByRole("link", {
-      name: /generate description/i,
+      name: /generator/i,
     });
     expect(generateLink).toHaveAttribute("aria-current", "page");
 

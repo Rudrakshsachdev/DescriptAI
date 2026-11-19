@@ -3,10 +3,12 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { GeneratorForm } from "@/components/generator/GeneratorForm";
 import * as services from "@/lib/api/services";
+import { ApiError } from "@/lib/api/client";
 import type { ProductDescriptionResponse } from "@/lib/types/api";
 
 vi.mock("@/lib/api/services", () => ({
   generateDescription: vi.fn(),
+  getBackendStatus: vi.fn().mockResolvedValue({ status: "online_ready" }),
 }));
 
 describe("GeneratorForm Component", () => {
@@ -17,9 +19,9 @@ describe("GeneratorForm Component", () => {
   it("renders the initial form elements", () => {
     render(<GeneratorForm />);
 
-    expect(screen.getByText("Product Information")).toBeInTheDocument();
+    expect(screen.getByText("Product details")).toBeInTheDocument();
     expect(
-      screen.getByPlaceholderText(/e\.g\., Organic Hydrating Face Cream/i)
+      screen.getByPlaceholderText(/e\.g\., LumaArc Desk Lamp/i)
     ).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /generate description/i })
@@ -31,6 +33,10 @@ describe("GeneratorForm Component", () => {
 
   it("displays client validation error when submitting with empty product name", async () => {
     render(<GeneratorForm />);
+
+    // Clear input first
+    const clearBtn = screen.getByTitle("Clear all fields");
+    fireEvent.click(clearBtn);
 
     const submitBtn = screen.getByRole("button", {
       name: /generate description/i,
@@ -53,12 +59,10 @@ describe("GeneratorForm Component", () => {
     fireEvent.click(sampleBtn);
 
     const nameInput = screen.getByPlaceholderText(
-      /e\.g\., Organic Hydrating Face Cream/i
+      /e\.g\., LumaArc Desk Lamp/i
     ) as HTMLInputElement;
 
-    expect(nameInput.value).toBe(
-      "Hydrating Daily Face Moisturizer with Hyaluronic Acid"
-    );
+    expect(nameInput.value).toBe("LumaArc Desk Lamp");
   });
 
   it("submits generation request and displays output on success", async () => {
@@ -66,13 +70,13 @@ describe("GeneratorForm Component", () => {
       success: true,
       data: {
         generated_description:
-          "Transform your skincare routine with this potent hydrating daily face moisturizer formulated with ceramides.",
+          "Transform your workspace routine with this modern desk lamp designed with touch controls.",
         model: "google/flan-t5-small",
         generation_strategy: "beam_search",
         latency_ms: 215.4,
         output_tokens: 32,
         input_prompt:
-          "Generate product description:\nProduct: Hydrating Daily Face Moisturizer with Hyaluronic Acid",
+          "Generate product description:\nProduct: LumaArc Desk Lamp",
         metadata: {
           num_beams: 2,
         },
@@ -82,10 +86,6 @@ describe("GeneratorForm Component", () => {
     vi.mocked(services.generateDescription).mockResolvedValueOnce(mockOutput);
 
     render(<GeneratorForm />);
-
-    // Load sample for quick valid data
-    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
-    fireEvent.click(sampleBtn);
 
     // Click submit
     const submitBtn = screen.getByRole("button", {
@@ -100,7 +100,7 @@ describe("GeneratorForm Component", () => {
     // Check output rendered
     await waitFor(() => {
       expect(
-        screen.getByText(/Transform your skincare routine with this potent/i)
+        screen.getByText(/Transform your workspace routine with this modern desk lamp/i)
       ).toBeInTheDocument();
       expect(screen.getByText(/215 ms/i)).toBeInTheDocument();
       expect(screen.getByText(/32 tokens/i)).toBeInTheDocument();
@@ -109,13 +109,10 @@ describe("GeneratorForm Component", () => {
 
   it("displays backend error message when generation fails", async () => {
     vi.mocked(services.generateDescription).mockRejectedValueOnce(
-      new Error("Inference execution timed out on GPU.")
+      new ApiError(504, "timeout", "Inference execution timed out on GPU.")
     );
 
     render(<GeneratorForm />);
-
-    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
-    fireEvent.click(sampleBtn);
 
     const submitBtn = screen.getByRole("button", {
       name: /generate description/i,
@@ -124,7 +121,7 @@ describe("GeneratorForm Component", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/Inference execution timed out on GPU\./i)
+        screen.getByText(/Inference request timed out on the backend/i)
       ).toBeInTheDocument();
     });
   });
@@ -144,9 +141,6 @@ describe("GeneratorForm Component", () => {
     vi.mocked(services.generateDescription).mockResolvedValueOnce(mockOutput);
 
     render(<GeneratorForm />);
-
-    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
-    fireEvent.click(sampleBtn);
 
     const submitBtn = screen.getByRole("button", {
       name: /generate description/i,
@@ -172,11 +166,8 @@ describe("GeneratorForm Component", () => {
   it("clears form inputs when clicking reset button", async () => {
     render(<GeneratorForm />);
 
-    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
-    fireEvent.click(sampleBtn);
-
     const nameInput = screen.getByPlaceholderText(
-      /e\.g\., Organic Hydrating Face Cream/i
+      /e\.g\., LumaArc Desk Lamp/i
     ) as HTMLInputElement;
     expect(nameInput.value).not.toBe("");
 
@@ -201,9 +192,6 @@ describe("GeneratorForm Component", () => {
     vi.mocked(services.generateDescription).mockResolvedValue(mockOutput);
 
     render(<GeneratorForm />);
-
-    const sampleBtn = screen.getByRole("button", { name: /sample product/i });
-    fireEvent.click(sampleBtn);
 
     const submitBtn = screen.getByRole("button", {
       name: /generate description/i,

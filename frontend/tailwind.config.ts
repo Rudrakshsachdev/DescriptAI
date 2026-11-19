@@ -8,6 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "'Segoe UI'",
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+        serif: [
+          "Georgia",
+          "Cambria",
+          "'Times New Roman'",
+          "Times",
+          "serif",
+        ],
+      },
       colors: {
         brand: {
           50: "#eff6ff",
